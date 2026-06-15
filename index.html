@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>V-Line Core Trainingsplan</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+    }
+
+    body {
+      background: #0f1115;
+      color: #f4f4f4;
+      line-height: 1.6;
+      padding: 20px;
+    }
+
+    .container {
+      max-width: 950px;
+      margin: 0 auto;
+    }
+
+    header {
+      text-align: center;
+      padding: 40px 20px;
+      background: linear-gradient(135deg, #1f2937, #111827);
+      border-radius: 20px;
+      margin-bottom: 30px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    }
+
+    header h1 {
+      font-size: 2.5rem;
+      margin-bottom: 10px;
+      color: #ffffff;
+    }
+
+    header p {
+      color: #cbd5e1;
+      font-size: 1.1rem;
+    }
+
+    .highlight {
+      color: #38bdf8;
+      font-weight: bold;
+    }
+
+    .card {
+      background: #171b22;
+      border: 1px solid #2a2f3a;
+      border-radius: 18px;
+      padding: 25px;
+      margin-bottom: 25px;
+      box-shadow: 0 8px 25px rgba(0,0,0,0.25);
+    }
+
+    .card h2 {
+      color: #38bdf8;
+      margin-bottom: 15px;
+      font-size: 1.6rem;
+    }
+
+    .card h3 {
+      color: #ffffff;
+      margin: 18px 0 8px;
+      font-size: 1.2rem;
+    }
+
+    ul {
+      margin-left: 20px;
+      margin-top: 10px;
+    }
+
+    li {
+      margin-bottom: 8px;
+      color: #e5e7eb;
+    }
+
+    .exercise {
+      background: #0f172a;
+      border-left: 5px solid #38bdf8;
+      padding: 18px;
+      border-radius: 12px;
+      margin-bottom: 15px;
+    }
+
+    .exercise strong {
+      color: #ffffff;
+      font-size: 1.1rem;
+    }
+
+    .sets {
+      display: inline-block;
+      margin-top: 8px;
+      background: #38bdf8;
+      color: #07111f;
+      padding: 5px 10px;
+      border-radius: 999px;
+      font-weight: bold;
+      font-size: 0.9rem;
+    }
+
+    .warning {
+      background: #2a1f12;
+      border: 1px solid #f59e0b;
+      color: #fde68a;
+      padding: 18px;
+      border-radius: 15px;
+      margin-top: 15px;
+    }
+
+    .plan-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+    }
+
+    .day {
+      background: #0f172a;
+      padding: 20px;
+      border-radius: 15px;
+      border: 1px solid #263244;
+    }
+
+    .day h3 {
+      color: #38bdf8;
+      margin-bottom: 12px;
+    }
+
+    .footer {
+      text-align: center;
+      color: #94a3b8;
+      margin-top: 35px;
+      font-size: 0.9rem;
+    }
+
+    .progress-box {
+      background: #101827;
+      border-radius: 14px;
+      padding: 18px;
+      margin-top: 15px;
+    }
+
+    .progress-box p {
+      margin-bottom: 8px;
+    }
+
+    @media (max-width: 600px) {
+      header h1 {
+        font-size: 2rem;
+      }
+
+      .card {
+        padding: 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+
+    <header>
+      <h1>V-Line Core Trainingsplan</h1>
+      <p>
+        Ziel: <span class="highlight">V-Line aufbauen</span>, Core stärken und später beim Abnehmen sichtbar machen.
+      </p>
+    </header>
+
+    <section class="card">
+      <h2>Wichtigster Punkt</h2>
+      <p>
+        Die V-Line entsteht nicht nur durch Bauchübungen. Sie wird sichtbar durch
+        <span class="highlight">niedrigeren Körperfettanteil</span>,
+        starke untere Bauchmuskeln, schräge Bauchmuskeln und eine gute Körperform.
+      </p>
+
+      <div class="warning">
+        <strong>Merke:</strong> Du kannst die V-Line jetzt schon stark trainieren.
+        Sichtbar wird sie aber erst richtig, wenn dein Bauchumfang weiter runtergeht.
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>Hauptübungen für die V-Line</h2>
+
+      <div class="exercise">
+        <strong>1. AB Rollouts</strong>
+        <p>
+          Sehr stark für tiefen Core, unteren Bauch und Körperspannung.
+          Am Anfang am besten auf den Knien machen.
+        </p>
+        <span class="sets">4 Sets × 10 Reps</span>
+      </div>
+
+      <div class="exercise">
+        <strong>2. R-Twists / Russian Twists</strong>
+        <p>
+          Trainiert die schrägen Bauchmuskeln. Langsam und kontrolliert drehen,
+          nicht mit Schwung reißen.
+        </p>
+        <span class="sets">4 Sets × 10 Reps pro Seite</span>
+      </div>
+
+      <div class="exercise">
+        <strong>3. Hanging Knee Raises</strong>
+        <p>
+          Sehr wichtig für unteren Bauch und V-Line-Optik.
+          Knie kontrolliert hochziehen und das Becken leicht einrollen.
+        </p>
+        <span class="sets">4 Sets × 8–12 Reps</span>
+      </div>
+
+      <div class="exercise">
+        <strong>4. Reverse Crunches</strong>
+        <p>
+          Fokus auf unteren Bauch. Nicht nur die Beine bewegen,
+          sondern das Becken Richtung Brust einrollen.
+        </p>
+        <span class="sets">3–4 Sets × 10–15 Reps</span>
+      </div>
+
+      <div class="exercise">
+        <strong>5. Cable Crunches</strong>
+        <p>
+          Baut dickere und stärkere Bauchmuskeln auf.
+          Schwer genug trainieren, aber sauber bleiben.
+        </p>
+        <span class="sets">3–4 Sets × 10–15 Reps</span>
+      </div>
+
+      <div class="exercise">
+        <strong>6. Side Plank Hip Dips</strong>
+        <p>
+          Sehr gut für seitliche Bauchlinie und schräge Bauchmuskeln.
+        </p>
+        <span class="sets">3 Sets × 10–15 Reps pro Seite</span>
+      </div>
+
+      <div class="exercise">
+        <strong>7. Pallof Press</strong>
+        <p>
+          Trainiert seitliche Core-Stabilität und hilft, den Bauch fest und kontrolliert zu halten.
+        </p>
+        <span class="sets">3 Sets × 10–12 Reps pro Seite</span>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>Trainingsplan: 2–3x pro Woche</h2>
+
+      <div class="plan-grid">
+
+        <div class="day">
+          <h3>Tag A</h3>
+          <ul>
+            <li>AB Rollouts – 4×10</li>
+            <li>Hanging Knee Raises – 4×8–12</li>
+            <li>R-Twists – 4×10 pro Seite</li>
+            <li>Side Plank – 3×30–45 Sekunden pro Seite</li>
+          </ul>
+        </div>
+
+        <div class="day">
+          <h3>Tag B</h3>
+          <ul>
+            <li>Cable Crunches – 4×10–15</li>
+            <li>Reverse Crunches – 4×10–15</li>
+            <li>AB Rollouts – 3×8–10</li>
+            <li>Pallof Press – 3×12 pro Seite</li>
+          </ul>
+        </div>
+
+      </div>
+
+      <div class="warning">
+        Zwischen harten Bauchtrainings immer mindestens 1 Tag Pause lassen.
+        Bauchmuskeln brauchen auch Regeneration.
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>Extra für bessere V-Optik</h2>
+      <p>
+        Trainiere zusätzlich Rücken und Schultern. Ein breiterer Oberkörper lässt die Taille schmaler wirken.
+      </p>
+
+      <ul>
+        <li>Latzug – 3–4×8–12</li>
+        <li>Rudern – 3–4×8–12</li>
+        <li>Schulterdrücken – 3×8–12</li>
+        <li>Seitheben – 3–4×12–20</li>
+        <li>Brustpresse – 3–4×8–12</li>
+      </ul>
+    </section>
+
+    <section class="card">
+      <h2>Technik-Regeln</h2>
+      <ul>
+        <li>Keine Übung mit Schwung machen.</li>
+        <li>Bauch immer fest anspannen.</li>
+        <li>Bei AB Rollouts den unteren Rücken nicht durchhängen lassen.</li>
+        <li>Wenn der untere Rücken schmerzt: Übung stoppen oder leichter machen.</li>
+        <li>Qualität ist wichtiger als viele Wiederholungen.</li>
+      </ul>
+    </section>
+
+    <section class="card">
+      <h2>Fortschritt messen</h2>
+
+      <div class="progress-box">
+        <p><strong>1x pro Woche:</strong> Bauchumfang morgens messen.</p>
+        <p><strong>Im Training:</strong> Wiederholungen oder Gewicht langsam steigern.</p>
+        <p><strong>Auf der Waage:</strong> Nicht jeden Tag stressen. Der Trend zählt.</p>
+      </div>
+
+      <p style="margin-top: 15px;">
+        Wenn dein Bauchumfang sinkt und du bei den Core-Übungen stärker wirst,
+        baust du genau das Fundament für eine sichtbare V-Line.
+      </p>
+    </section>
+
+    <footer class="footer">
+      <p>V-Line Plan — Core aufbauen, Fett verlieren, Form sichtbar machen.</p>
+    </footer>
+
+  </div>
+
+</body>
+</html>
