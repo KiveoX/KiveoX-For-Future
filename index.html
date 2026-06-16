@@ -49,12 +49,15 @@
     }
 
     .brand {
+      background: none;
+      border: none;
       color: #38bdf8;
       font-weight: 900;
       letter-spacing: 1px;
       text-decoration: none;
       white-space: nowrap;
       cursor: pointer;
+      font-size: 1rem;
     }
 
     .navbar {
@@ -180,6 +183,7 @@
       box-shadow: 0 12px 30px rgba(0,0,0,0.35);
       transition: 0.2s ease;
       overflow: hidden;
+      margin-bottom: 20px;
     }
 
     .card:hover {
@@ -192,8 +196,23 @@
       margin-bottom: 10px;
     }
 
+    .card h3 {
+      color: #38bdf8;
+      margin-bottom: 10px;
+    }
+
     .card p {
       color: #d1d5db;
+    }
+
+    ul {
+      margin-left: 20px;
+      margin-top: 10px;
+    }
+
+    li {
+      margin-bottom: 8px;
+      color: #e5e7eb;
     }
 
     .tag,
@@ -282,6 +301,39 @@
       font-size: 1.05rem;
     }
 
+    .highlight {
+      color: #38bdf8;
+      font-weight: bold;
+    }
+
+    .warning {
+      background: #2a1f12;
+      border: 1px solid #f59e0b;
+      color: #fde68a;
+      padding: 18px;
+      border-radius: 15px;
+      margin-top: 15px;
+    }
+
+    .plan-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 20px;
+      margin-top: 18px;
+    }
+
+    .day {
+      background: rgba(15, 23, 42, 0.92);
+      padding: 20px;
+      border-radius: 15px;
+      border: 1px solid #263244;
+    }
+
+    .day h3 {
+      color: #38bdf8;
+      margin-bottom: 12px;
+    }
+
     .exercise {
       background: rgba(15, 23, 42, 0.92);
       border-left: 5px solid #38bdf8;
@@ -304,6 +356,17 @@
       border-radius: 999px;
       font-weight: bold;
       font-size: 0.9rem;
+    }
+
+    .progress-box {
+      background: rgba(16, 24, 39, 0.92);
+      border-radius: 14px;
+      padding: 18px;
+      margin-top: 15px;
+    }
+
+    .progress-box p {
+      margin-bottom: 8px;
     }
 
     .footer {
@@ -343,6 +406,14 @@
       .language-switcher button {
         padding: 9px 12px;
         font-size: 0.85rem;
+      }
+
+      .detail-hero {
+        padding: 22px;
+      }
+
+      .card {
+        padding: 20px;
       }
     }
   </style>
@@ -479,44 +550,249 @@
 
       <div class="detail-hero">
         <h1 id="vline-detail-title">V-Line Core Plan</h1>
-        <p id="vline-detail-text">Fokus auf unteren Bauch, Obliques, Core-Stabilität und saubere Technik.</p>
+        <p id="vline-detail-text">
+          Fokus auf unteren Bauch, Obliques, Core-Stabilität und saubere Technik.
+        </p>
       </div>
 
-      <div class="exercise">
-        <strong>1. AB Rollouts</strong>
-        <p>Sehr stark für tiefen Core, unteren Bauch und Körperspannung. Am Anfang am besten auf den Knien machen.</p>
-        <span class="sets">4 Sets × 10 Reps</span>
-      </div>
+      <section class="card">
+        <h2>Wichtigster Punkt</h2>
+        <p>
+          Die V-Line entsteht nicht nur durch Bauchübungen. Sie wird sichtbar durch
+          <span class="highlight">niedrigeren Körperfettanteil</span>,
+          starke untere Bauchmuskeln, schräge Bauchmuskeln und eine gute Körperform.
+        </p>
 
-      <div class="exercise">
-        <strong>2. Hanging Knee Raises</strong>
-        <p>Sehr wichtig für unteren Bauch und V-Line-Optik. Knie kontrolliert hochziehen und Becken leicht einrollen.</p>
-        <span class="sets">4 Sets × 8–12 Reps</span>
-      </div>
+        <div class="warning">
+          <strong>Merke:</strong> Du kannst die V-Line jetzt schon stark trainieren.
+          Sichtbar wird sie aber erst richtig, wenn dein Bauchumfang weiter runtergeht.
+        </div>
+      </section>
 
-      <div class="exercise">
-        <strong>3. Reverse Crunches</strong>
-        <p>Fokus auf unteren Bauch. Nicht nur Beine bewegen, sondern das Becken Richtung Brust einrollen.</p>
-        <span class="sets">3–4 Sets × 10–15 Reps</span>
-      </div>
+      <section class="card">
+        <h2>Für wen ist dieser Plan?</h2>
+        <p>
+          Dieser Plan ist für Anfänger, Fortgeschrittene und Leute, die ihre Core-Form gezielt verbessern wollen.
+          Du musst nicht direkt jede Übung perfekt können. Starte mit dem passenden Level und steigere dich Schritt für Schritt.
+        </p>
 
-      <div class="exercise">
-        <strong>4. Russian Twists</strong>
-        <p>Trainiert die schrägen Bauchmuskeln. Langsam und kontrolliert drehen, nicht mit Schwung reißen.</p>
-        <span class="sets">4 Sets × 10 Reps pro Seite</span>
-      </div>
+        <div class="plan-grid">
+          <div class="day">
+            <h3>Beginner</h3>
+            <ul>
+              <li>Dead Bug – 3×10 pro Seite</li>
+              <li>Reverse Crunches – 3×8–12</li>
+              <li>Plank – 3×20–30 Sekunden</li>
+              <li>Side Plank – 2×15–25 Sekunden pro Seite</li>
+            </ul>
+          </div>
 
-      <div class="exercise">
-        <strong>5. Side Plank Hip Dips</strong>
-        <p>Sehr gut für seitliche Bauchlinie und schräge Bauchmuskeln.</p>
-        <span class="sets">3 Sets × 10–15 Reps pro Seite</span>
-      </div>
+          <div class="day">
+            <h3>Intermediate</h3>
+            <ul>
+              <li>AB Rollouts auf Knien – 3×6–10</li>
+              <li>Hanging Knee Raises – 3×8–12</li>
+              <li>Russian Twists – 3×10 pro Seite</li>
+              <li>Pallof Press – 3×10–12 pro Seite</li>
+            </ul>
+          </div>
 
-      <div class="exercise">
-        <strong>6. Pallof Press</strong>
-        <p>Trainiert seitliche Core-Stabilität und hilft, den Bauch fest und kontrolliert zu halten.</p>
-        <span class="sets">3 Sets × 10–12 Reps pro Seite</span>
-      </div>
+          <div class="day">
+            <h3>Advanced</h3>
+            <ul>
+              <li>AB Rollouts – 4×10</li>
+              <li>Hanging Leg Raises – 4×8–12</li>
+              <li>Cable Crunches – 4×10–15</li>
+              <li>Side Plank Hip Dips – 3×10–15 pro Seite</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="warning">
+          Anfänger sollen nicht übersprungen werden. Saubere Technik ist wichtiger als schwere Übungen.
+          Wenn der untere Rücken schmerzt, Übung leichter machen oder stoppen.
+        </div>
+      </section>
+
+      <section class="card">
+        <h2>Hauptübungen für die V-Line</h2>
+
+        <div class="exercise">
+          <strong>1. Dead Bug</strong>
+          <p>
+            Perfekt für Anfänger. Trainiert Core-Spannung, Kontrolle und Stabilität,
+            ohne den unteren Rücken stark zu belasten.
+          </p>
+          <span class="sets">Beginner · 3 Sets × 10 pro Seite</span>
+        </div>
+
+        <div class="exercise">
+          <strong>2. AB Rollouts</strong>
+          <p>
+            Sehr stark für tiefen Core, unteren Bauch und Körperspannung.
+            Am Anfang am besten auf den Knien machen.
+          </p>
+          <span class="sets">Intermediate / Advanced · 4 Sets × 10 Reps</span>
+        </div>
+
+        <div class="exercise">
+          <strong>3. R-Twists / Russian Twists</strong>
+          <p>
+            Trainiert die schrägen Bauchmuskeln. Langsam und kontrolliert drehen,
+            nicht mit Schwung reißen.
+          </p>
+          <span class="sets">Intermediate · 4 Sets × 10 Reps pro Seite</span>
+        </div>
+
+        <div class="exercise">
+          <strong>4. Hanging Knee Raises</strong>
+          <p>
+            Sehr wichtig für unteren Bauch und V-Line-Optik.
+            Knie kontrolliert hochziehen und das Becken leicht einrollen.
+          </p>
+          <span class="sets">Intermediate · 4 Sets × 8–12 Reps</span>
+        </div>
+
+        <div class="exercise">
+          <strong>5. Reverse Crunches</strong>
+          <p>
+            Fokus auf unteren Bauch. Nicht nur die Beine bewegen,
+            sondern das Becken Richtung Brust einrollen.
+          </p>
+          <span class="sets">Beginner / Intermediate · 3–4 Sets × 10–15 Reps</span>
+        </div>
+
+        <div class="exercise">
+          <strong>6. Cable Crunches</strong>
+          <p>
+            Baut dickere und stärkere Bauchmuskeln auf.
+            Schwer genug trainieren, aber sauber bleiben.
+          </p>
+          <span class="sets">Intermediate / Advanced · 3–4 Sets × 10–15 Reps</span>
+        </div>
+
+        <div class="exercise">
+          <strong>7. Side Plank Hip Dips</strong>
+          <p>
+            Sehr gut für seitliche Bauchlinie und schräge Bauchmuskeln.
+          </p>
+          <span class="sets">Intermediate · 3 Sets × 10–15 Reps pro Seite</span>
+        </div>
+
+        <div class="exercise">
+          <strong>8. Pallof Press</strong>
+          <p>
+            Trainiert seitliche Core-Stabilität und hilft, den Bauch fest und kontrolliert zu halten.
+          </p>
+          <span class="sets">Beginner / Intermediate · 3 Sets × 10–12 Reps pro Seite</span>
+        </div>
+      </section>
+
+      <section class="card">
+        <h2>Trainingsplan: 2–3x pro Woche</h2>
+
+        <div class="plan-grid">
+          <div class="day">
+            <h3>Tag A</h3>
+            <ul>
+              <li>AB Rollouts – 4×10</li>
+              <li>Hanging Knee Raises – 4×8–12</li>
+              <li>R-Twists – 4×10 pro Seite</li>
+              <li>Side Plank – 3×30–45 Sekunden pro Seite</li>
+            </ul>
+          </div>
+
+          <div class="day">
+            <h3>Tag B</h3>
+            <ul>
+              <li>Cable Crunches – 4×10–15</li>
+              <li>Reverse Crunches – 4×10–15</li>
+              <li>AB Rollouts – 3×8–10</li>
+              <li>Pallof Press – 3×12 pro Seite</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="warning">
+          Zwischen harten Bauchtrainings immer mindestens 1 Tag Pause lassen.
+          Bauchmuskeln brauchen auch Regeneration.
+        </div>
+      </section>
+
+      <section class="card">
+        <h2>Beginner-Plan: 2–3x pro Woche</h2>
+
+        <div class="plan-grid">
+          <div class="day">
+            <h3>Beginner Tag A</h3>
+            <ul>
+              <li>Dead Bug – 3×10 pro Seite</li>
+              <li>Reverse Crunches – 3×8–12</li>
+              <li>Plank – 3×20–30 Sekunden</li>
+              <li>Side Plank – 2×15–25 Sekunden pro Seite</li>
+            </ul>
+          </div>
+
+          <div class="day">
+            <h3>Beginner Tag B</h3>
+            <ul>
+              <li>Pallof Press – 3×10 pro Seite</li>
+              <li>Reverse Crunches – 3×10–12</li>
+              <li>Plank – 3×25–35 Sekunden</li>
+              <li>Dead Bug – 3×10 pro Seite</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="warning">
+          Dieser Beginner-Plan ist wichtig. Anfänger sollen nicht direkt mit schweren Rollouts oder harten Hanging Leg Raises starten.
+          Erst Kontrolle, dann Intensität.
+        </div>
+      </section>
+
+      <section class="card">
+        <h2>Extra für bessere V-Optik</h2>
+        <p>
+          Trainiere zusätzlich Rücken und Schultern. Ein breiterer Oberkörper lässt die Taille schmaler wirken.
+        </p>
+
+        <ul>
+          <li>Latzug – 3–4×8–12</li>
+          <li>Rudern – 3–4×8–12</li>
+          <li>Schulterdrücken – 3×8–12</li>
+          <li>Seitheben – 3–4×12–20</li>
+          <li>Brustpresse – 3–4×8–12</li>
+        </ul>
+      </section>
+
+      <section class="card">
+        <h2>Technik-Regeln</h2>
+        <ul>
+          <li>Keine Übung mit Schwung machen.</li>
+          <li>Bauch immer fest anspannen.</li>
+          <li>Bei AB Rollouts den unteren Rücken nicht durchhängen lassen.</li>
+          <li>Wenn der untere Rücken schmerzt: Übung stoppen oder leichter machen.</li>
+          <li>Qualität ist wichtiger als viele Wiederholungen.</li>
+          <li>Erst die leichte Version können, dann schwerer machen.</li>
+          <li>Bei jeder Übung langsam und kontrolliert arbeiten.</li>
+        </ul>
+      </section>
+
+      <section class="card">
+        <h2>Fortschritt messen</h2>
+
+        <div class="progress-box">
+          <p><strong>1x pro Woche:</strong> Bauchumfang morgens messen.</p>
+          <p><strong>Im Training:</strong> Wiederholungen oder Gewicht langsam steigern.</p>
+          <p><strong>Auf der Waage:</strong> Nicht jeden Tag stressen. Der Trend zählt.</p>
+          <p><strong>Bei Übungen:</strong> Erst mehr Kontrolle, dann mehr Wiederholungen, dann mehr Gewicht.</p>
+        </div>
+
+        <p style="margin-top: 15px;">
+          Wenn dein Bauchumfang sinkt und du bei den Core-Übungen stärker wirst,
+          baust du genau das Fundament für eine sichtbare V-Line.
+        </p>
+      </section>
     </section>
 
     <section id="back-view" class="view">
