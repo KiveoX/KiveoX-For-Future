@@ -825,41 +825,968 @@
 
   </main>
 
-  <script>
-    function showView(viewId) {
-      const views = document.querySelectorAll(".view");
+</script>
 
-      views.forEach(function(view) {
-        view.classList.remove("active");
-      });
+durch diesen hier:
 
-      document.getElementById(viewId).classList.add("active");
-      window.scrollTo({ top: 0, behavior: "smooth" });
+<script>
+  const translations = {
+    de: {
+      navHome: "Home",
+      navTraining: "Training",
+      navVline: "V-Line",
+      navFuture: "Future",
+
+      heroTitle: "KiveoX Training Forge",
+      heroSubtitle: "Forge your body. Build your future.",
+
+      trainingTitle: "Training Library",
+      coreTitle: "Core Training",
+      coreText: "Core, V-Line, unterer Bauch, schräge Bauchmuskeln und Stabilität.",
+      coreButton: "Bauch & V-Line öffnen",
+
+      backTitle: "Back",
+      backText: "Upper back, lat width and lower back. Important for posture, stability and a wider look.",
+      backButton: "Back öffnen",
+
+      lowerTitle: "Lower Body",
+      lowerText: "Quads, hamstrings, calves and glutes. Big muscle groups for strength and shape.",
+      lowerButton: "Legs öffnen",
+
+      upperTitle: "Upper Body",
+      upperText: "Chest, shoulders and arms. For a strong silhouette, stability and visible shape.",
+      upperButton: "Upper Body öffnen",
+
+      plansTitle: "Featured Areas",
+      beastTitle: "Beast Mode",
+      beastText: "Motivation, Challenges und harte Trainingseinheiten für später.",
+      beastTag: "Coming Soon",
+
+      forgeTitle: "Forge Strength",
+      forgeText: "Kraft, Disziplin und starke Basics für den ganzen Körper.",
+      forgeTag: "Strength",
+
+      strongTitle: "Machine Mode",
+      strongText: "Gym is a tool. You are the machine.",
+      strongTag: "Motivation",
+
+      futureTitle: "KiveoX Future",
+      suppTitle: "Supplements",
+      suppText: "Späterer Bereich für Basics, Guides und klare Infos zu Supplements.",
+      suppTag: "Coming Soon",
+
+      merchTitle: "Merch",
+      merchText: "Späterer Bereich für KiveoX Designs, Drops und Training Gear.",
+      merchTag: "Coming Soon",
+
+      progressTitle: "Progress Tracker",
+      progressText: "Später kannst du Gewicht, Bauchumfang, Kraftwerte und Trainingstage tracken.",
+      progressTag: "Future Feature",
+
+      brandTitle: "KiveoX Brand",
+      brandText: "Logo, Design, Identity und Future-Projekt.",
+      brandTag: "Brand",
+
+      footer: "© 2026 KiveoX Training Forge. Forge your future. All rights reserved.",
+
+      backHome: "← Zurück zur Home",
+      vlineHTML: `
+        <button class="back-btn" onclick="showView('home-view')">← Zurück zur Home</button>
+
+        <div class="detail-hero">
+          <h1>V-Line Core Plan</h1>
+          <p>Fokus auf unteren Bauch, Obliques, Core-Stabilität und saubere Technik.</p>
+        </div>
+
+        <section class="card">
+          <h2>Wichtigster Punkt</h2>
+          <p>
+            Die V-Line entsteht nicht nur durch Bauchübungen. Sie wird sichtbar durch
+            <span class="highlight">niedrigeren Körperfettanteil</span>,
+            starke untere Bauchmuskeln, schräge Bauchmuskeln und eine gute Körperform.
+          </p>
+
+          <div class="warning">
+            <strong>Merke:</strong> Du kannst die V-Line jetzt schon stark trainieren.
+            Sichtbar wird sie aber erst richtig, wenn dein Bauchumfang weiter runtergeht.
+          </div>
+        </section>
+
+        <section class="card">
+          <h2>Für wen ist dieser Plan?</h2>
+          <p>
+            Dieser Plan ist für Anfänger, Fortgeschrittene und Leute, die ihre Core-Form gezielt verbessern wollen.
+            Du musst nicht direkt jede Übung perfekt können. Starte mit dem passenden Level und steigere dich Schritt für Schritt.
+          </p>
+
+          <div class="plan-grid">
+            <div class="day">
+              <h3>Beginner</h3>
+              <ul>
+                <li>Dead Bug – 3×10 pro Seite</li>
+                <li>Reverse Crunches – 3×8–12</li>
+                <li>Plank – 3×20–30 Sekunden</li>
+                <li>Side Plank – 2×15–25 Sekunden pro Seite</li>
+              </ul>
+            </div>
+
+            <div class="day">
+              <h3>Intermediate</h3>
+              <ul>
+                <li>AB Rollouts auf Knien – 3×6–10</li>
+                <li>Hanging Knee Raises – 3×8–12</li>
+                <li>Russian Twists – 3×10 pro Seite</li>
+                <li>Pallof Press – 3×10–12 pro Seite</li>
+              </ul>
+            </div>
+
+            <div class="day">
+              <h3>Advanced</h3>
+              <ul>
+                <li>AB Rollouts – 4×10</li>
+                <li>Hanging Leg Raises – 4×8–12</li>
+                <li>Cable Crunches – 4×10–15</li>
+                <li>Side Plank Hip Dips – 3×10–15 pro Seite</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="warning">
+            Anfänger sollen nicht übersprungen werden. Saubere Technik ist wichtiger als schwere Übungen.
+            Wenn der untere Rücken schmerzt, Übung leichter machen oder stoppen.
+          </div>
+        </section>
+
+        <section class="card">
+          <h2>Hauptübungen für die V-Line</h2>
+
+          <div class="exercise">
+            <strong>1. Dead Bug</strong>
+            <p>Perfekt für Anfänger. Trainiert Core-Spannung, Kontrolle und Stabilität, ohne den unteren Rücken stark zu belasten.</p>
+            <span class="sets">Beginner · 3 Sets × 10 pro Seite</span>
+          </div>
+
+          <div class="exercise">
+            <strong>2. AB Rollouts</strong>
+            <p>Sehr stark für tiefen Core, unteren Bauch und Körperspannung. Am Anfang am besten auf den Knien machen.</p>
+            <span class="sets">Intermediate / Advanced · 4 Sets × 10 Reps</span>
+          </div>
+
+          <div class="exercise">
+            <strong>3. R-Twists / Russian Twists</strong>
+            <p>Trainiert die schrägen Bauchmuskeln. Langsam und kontrolliert drehen, nicht mit Schwung reißen.</p>
+            <span class="sets">Intermediate · 4 Sets × 10 Reps pro Seite</span>
+          </div>
+
+          <div class="exercise">
+            <strong>4. Hanging Knee Raises</strong>
+            <p>Sehr wichtig für unteren Bauch und V-Line-Optik. Knie kontrolliert hochziehen und das Becken leicht einrollen.</p>
+            <span class="sets">Intermediate · 4 Sets × 8–12 Reps</span>
+          </div>
+
+          <div class="exercise">
+            <strong>5. Reverse Crunches</strong>
+            <p>Fokus auf unteren Bauch. Nicht nur die Beine bewegen, sondern das Becken Richtung Brust einrollen.</p>
+            <span class="sets">Beginner / Intermediate · 3–4 Sets × 10–15 Reps</span>
+          </div>
+
+          <div class="exercise">
+            <strong>6. Cable Crunches</strong>
+            <p>Baut dickere und stärkere Bauchmuskeln auf. Schwer genug trainieren, aber sauber bleiben.</p>
+            <span class="sets">Intermediate / Advanced · 3–4 Sets × 10–15 Reps</span>
+          </div>
+
+          <div class="exercise">
+            <strong>7. Side Plank Hip Dips</strong>
+            <p>Sehr gut für seitliche Bauchlinie und schräge Bauchmuskeln.</p>
+            <span class="sets">Intermediate · 3 Sets × 10–15 Reps pro Seite</span>
+          </div>
+
+          <div class="exercise">
+            <strong>8. Pallof Press</strong>
+            <p>Trainiert seitliche Core-Stabilität und hilft, den Bauch fest und kontrolliert zu halten.</p>
+            <span class="sets">Beginner / Intermediate · 3 Sets × 10–12 Reps pro Seite</span>
+          </div>
+        </section>
+
+        <section class="card">
+          <h2>Trainingsplan: 2–3x pro Woche</h2>
+
+          <div class="plan-grid">
+            <div class="day">
+              <h3>Tag A</h3>
+              <ul>
+                <li>AB Rollouts – 4×10</li>
+                <li>Hanging Knee Raises – 4×8–12</li>
+                <li>R-Twists – 4×10 pro Seite</li>
+                <li>Side Plank – 3×30–45 Sekunden pro Seite</li>
+              </ul>
+            </div>
+
+            <div class="day">
+              <h3>Tag B</h3>
+              <ul>
+                <li>Cable Crunches – 4×10–15</li>
+                <li>Reverse Crunches – 4×10–15</li>
+                <li>AB Rollouts – 3×8–10</li>
+                <li>Pallof Press – 3×12 pro Seite</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="warning">
+            Zwischen harten Bauchtrainings immer mindestens 1 Tag Pause lassen.
+            Bauchmuskeln brauchen auch Regeneration.
+          </div>
+        </section>
+
+        <section class="card">
+          <h2>Beginner-Plan: 2–3x pro Woche</h2>
+
+          <div class="plan-grid">
+            <div class="day">
+              <h3>Beginner Tag A</h3>
+              <ul>
+                <li>Dead Bug – 3×10 pro Seite</li>
+                <li>Reverse Crunches – 3×8–12</li>
+                <li>Plank – 3×20–30 Sekunden</li>
+                <li>Side Plank – 2×15–25 Sekunden pro Seite</li>
+              </ul>
+            </div>
+
+            <div class="day">
+              <h3>Beginner Tag B</h3>
+              <ul>
+                <li>Pallof Press – 3×10 pro Seite</li>
+                <li>Reverse Crunches – 3×10–12</li>
+                <li>Plank – 3×25–35 Sekunden</li>
+                <li>Dead Bug – 3×10 pro Seite</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="warning">
+            Dieser Beginner-Plan ist wichtig. Anfänger sollen nicht direkt mit schweren Rollouts oder harten Hanging Leg Raises starten.
+            Erst Kontrolle, dann Intensität.
+          </div>
+        </section>
+
+        <section class="card">
+          <h2>Extra für bessere V-Optik</h2>
+          <p>Trainiere zusätzlich Rücken und Schultern. Ein breiterer Oberkörper lässt die Taille schmaler wirken.</p>
+
+          <ul>
+            <li>Latzug – 3–4×8–12</li>
+            <li>Rudern – 3–4×8–12</li>
+            <li>Schulterdrücken – 3×8–12</li>
+            <li>Seitheben – 3–4×12–20</li>
+            <li>Brustpresse – 3–4×8–12</li>
+          </ul>
+        </section>
+
+        <section class="card">
+          <h2>Technik-Regeln</h2>
+          <ul>
+            <li>Keine Übung mit Schwung machen.</li>
+            <li>Bauch immer fest anspannen.</li>
+            <li>Bei AB Rollouts den unteren Rücken nicht durchhängen lassen.</li>
+            <li>Wenn der untere Rücken schmerzt: Übung stoppen oder leichter machen.</li>
+            <li>Qualität ist wichtiger als viele Wiederholungen.</li>
+            <li>Erst die leichte Version können, dann schwerer machen.</li>
+            <li>Bei jeder Übung langsam und kontrolliert arbeiten.</li>
+          </ul>
+        </section>
+
+        <section class="card">
+          <h2>Fortschritt messen</h2>
+
+          <div class="progress-box">
+            <p><strong>1x pro Woche:</strong> Bauchumfang morgens messen.</p>
+            <p><strong>Im Training:</strong> Wiederholungen oder Gewicht langsam steigern.</p>
+            <p><strong>Auf der Waage:</strong> Nicht jeden Tag stressen. Der Trend zählt.</p>
+            <p><strong>Bei Übungen:</strong> Erst mehr Kontrolle, dann mehr Wiederholungen, dann mehr Gewicht.</p>
+          </div>
+
+          <p style="margin-top: 15px;">
+            Wenn dein Bauchumfang sinkt und du bei den Core-Übungen stärker wirst,
+            baust du genau das Fundament für eine sichtbare V-Line.
+          </p>
+        </section>
+      `
+    },
+
+    en: {
+      navHome: "Home",
+      navTraining: "Training",
+      navVline: "V-Line",
+      navFuture: "Future",
+
+      heroTitle: "KiveoX Training Forge",
+      heroSubtitle: "Forge your body. Build your future.",
+
+      trainingTitle: "Training Library",
+      coreTitle: "Core Training",
+      coreText: "Core, V-Line, lower abs, obliques and stability.",
+      coreButton: "Open Abs & V-Line",
+
+      backTitle: "Back",
+      backText: "Upper back, lat width and lower back. Important for posture, stability and a wider look.",
+      backButton: "Open Back",
+
+      lowerTitle: "Lower Body",
+      lowerText: "Quads, hamstrings, calves and glutes. Big muscle groups for strength and shape.",
+      lowerButton: "Open Legs",
+
+      upperTitle: "Upper Body",
+      upperText: "Chest, shoulders and arms. For a strong silhouette, stability and visible shape.",
+      upperButton: "Open Upper Body",
+
+      plansTitle: "Featured Areas",
+      beastTitle: "Beast Mode",
+      beastText: "Motivation, challenges and intense training sessions for later.",
+      beastTag: "Coming Soon",
+
+      forgeTitle: "Forge Strength",
+      forgeText: "Strength, discipline and strong basics for the whole body.",
+      forgeTag: "Strength",
+
+      strongTitle: "Machine Mode",
+      strongText: "Gym is a tool. You are the machine.",
+      strongTag: "Motivation",
+
+      futureTitle: "KiveoX Future",
+      suppTitle: "Supplements",
+      suppText: "Future section for basics, guides and clear supplement information.",
+      suppTag: "Coming Soon",
+
+      merchTitle: "Merch",
+      merchText: "Future section for KiveoX designs, drops and training gear.",
+      merchTag: "Coming Soon",
+
+      progressTitle: "Progress Tracker",
+      progressText: "Later you can track weight, waist size, strength numbers and training days.",
+      progressTag: "Future Feature",
+
+      brandTitle: "KiveoX Brand",
+      brandText: "Logo, design, identity and future project.",
+      brandTag: "Brand",
+
+      footer: "© 2026 KiveoX Training Forge. Forge your future. All rights reserved.",
+
+      vlineHTML: `
+        <button class="back-btn" onclick="showView('home-view')">← Back to Home</button>
+
+        <div class="detail-hero">
+          <h1>V-Line Core Plan</h1>
+          <p>Focus on lower abs, obliques, core stability and clean technique.</p>
+        </div>
+
+        <section class="card">
+          <h2>Most Important Point</h2>
+          <p>
+            The V-Line is not created by ab exercises alone. It becomes visible through a
+            <span class="highlight">lower body fat percentage</span>,
+            strong lower abs, obliques and good overall body shape.
+          </p>
+
+          <div class="warning">
+            <strong>Remember:</strong> You can train the V-Line foundation now.
+            It becomes truly visible when your waist size keeps going down.
+          </div>
+        </section>
+
+        <section class="card">
+          <h2>Who is this plan for?</h2>
+          <p>
+            This plan is for beginners, intermediate lifters and people who want to improve their core shape.
+            You do not need to perform every exercise perfectly from day one. Start at the right level and progress step by step.
+          </p>
+
+          <div class="plan-grid">
+            <div class="day">
+              <h3>Beginner</h3>
+              <ul>
+                <li>Dead Bug – 3×10 per side</li>
+                <li>Reverse Crunches – 3×8–12</li>
+                <li>Plank – 3×20–30 seconds</li>
+                <li>Side Plank – 2×15–25 seconds per side</li>
+              </ul>
+            </div>
+
+            <div class="day">
+              <h3>Intermediate</h3>
+              <ul>
+                <li>Kneeling AB Rollouts – 3×6–10</li>
+                <li>Hanging Knee Raises – 3×8–12</li>
+                <li>Russian Twists – 3×10 per side</li>
+                <li>Pallof Press – 3×10–12 per side</li>
+              </ul>
+            </div>
+
+            <div class="day">
+              <h3>Advanced</h3>
+              <ul>
+                <li>AB Rollouts – 4×10</li>
+                <li>Hanging Leg Raises – 4×8–12</li>
+                <li>Cable Crunches – 4×10–15</li>
+                <li>Side Plank Hip Dips – 3×10–15 per side</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="warning">
+            Beginners must not be skipped. Clean technique is more important than hard exercises.
+            If your lower back hurts, make the exercise easier or stop.
+          </div>
+        </section>
+
+        <section class="card">
+          <h2>Main Exercises for the V-Line</h2>
+
+          <div class="exercise">
+            <strong>1. Dead Bug</strong>
+            <p>Perfect for beginners. Builds core tension, control and stability without heavily stressing the lower back.</p>
+            <span class="sets">Beginner · 3 Sets × 10 per side</span>
+          </div>
+
+          <div class="exercise">
+            <strong>2. AB Rollouts</strong>
+            <p>Very strong for deep core strength, lower abs and full-body tension. Start on your knees in the beginning.</p>
+            <span class="sets">Intermediate / Advanced · 4 Sets × 10 Reps</span>
+          </div>
+
+          <div class="exercise">
+            <strong>3. R-Twists / Russian Twists</strong>
+            <p>Trains the obliques. Rotate slowly and with control. Do not swing or rush the movement.</p>
+            <span class="sets">Intermediate · 4 Sets × 10 Reps per side</span>
+          </div>
+
+          <div class="exercise">
+            <strong>4. Hanging Knee Raises</strong>
+            <p>Very important for lower abs and the V-Line look. Raise your knees with control and slightly tuck your pelvis.</p>
+            <span class="sets">Intermediate · 4 Sets × 8–12 Reps</span>
+          </div>
+
+          <div class="exercise">
+            <strong>5. Reverse Crunches</strong>
+            <p>Focuses on the lower abs. Do not just move your legs. Roll your pelvis toward your chest.</p>
+            <span class="sets">Beginner / Intermediate · 3–4 Sets × 10–15 Reps</span>
+          </div>
+
+          <div class="exercise">
+            <strong>6. Cable Crunches</strong>
+            <p>Builds thicker and stronger abdominal muscles. Use enough resistance, but keep the movement clean.</p>
+            <span class="sets">Intermediate / Advanced · 3–4 Sets × 10–15 Reps</span>
+          </div>
+
+          <div class="exercise">
+            <strong>7. Side Plank Hip Dips</strong>
+            <p>Very good for the side abdominal line and obliques.</p>
+            <span class="sets">Intermediate · 3 Sets × 10–15 Reps per side</span>
+          </div>
+
+          <div class="exercise">
+            <strong>8. Pallof Press</strong>
+            <p>Trains side core stability and helps keep your midsection tight and controlled.</p>
+            <span class="sets">Beginner / Intermediate · 3 Sets × 10–12 Reps per side</span>
+          </div>
+        </section>
+
+        <section class="card">
+          <h2>Training Plan: 2–3x per Week</h2>
+
+          <div class="plan-grid">
+            <div class="day">
+              <h3>Day A</h3>
+              <ul>
+                <li>AB Rollouts – 4×10</li>
+                <li>Hanging Knee Raises – 4×8–12</li>
+                <li>R-Twists – 4×10 per side</li>
+                <li>Side Plank – 3×30–45 seconds per side</li>
+              </ul>
+            </div>
+
+            <div class="day">
+              <h3>Day B</h3>
+              <ul>
+                <li>Cable Crunches – 4×10–15</li>
+                <li>Reverse Crunches – 4×10–15</li>
+                <li>AB Rollouts – 3×8–10</li>
+                <li>Pallof Press – 3×12 per side</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="warning">
+            Always take at least 1 rest day between hard core sessions.
+            Your abs need recovery too.
+          </div>
+        </section>
+
+        <section class="card">
+          <h2>Beginner Plan: 2–3x per Week</h2>
+
+          <div class="plan-grid">
+            <div class="day">
+              <h3>Beginner Day A</h3>
+              <ul>
+                <li>Dead Bug – 3×10 per side</li>
+                <li>Reverse Crunches – 3×8–12</li>
+                <li>Plank – 3×20–30 seconds</li>
+                <li>Side Plank – 2×15–25 seconds per side</li>
+              </ul>
+            </div>
+
+            <div class="day">
+              <h3>Beginner Day B</h3>
+              <ul>
+                <li>Pallof Press – 3×10 per side</li>
+                <li>Reverse Crunches – 3×10–12</li>
+                <li>Plank – 3×25–35 seconds</li>
+                <li>Dead Bug – 3×10 per side</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="warning">
+            This beginner plan matters. Beginners should not start directly with heavy rollouts or hard hanging leg raises.
+            Control first, intensity later.
+          </div>
+        </section>
+
+        <section class="card">
+          <h2>Extra for a Better V-Shape</h2>
+          <p>Train your back and shoulders too. A wider upper body makes the waist look smaller.</p>
+
+          <ul>
+            <li>Lat Pulldown – 3–4×8–12</li>
+            <li>Rows – 3–4×8–12</li>
+            <li>Shoulder Press – 3×8–12</li>
+            <li>Lateral Raises – 3–4×12–20</li>
+            <li>Chest Press – 3–4×8–12</li>
+          </ul>
+        </section>
+
+        <section class="card">
+          <h2>Technique Rules</h2>
+          <ul>
+            <li>Do not use momentum.</li>
+            <li>Keep your abs tight during every exercise.</li>
+            <li>Do not let your lower back sag during AB Rollouts.</li>
+            <li>If your lower back hurts, stop the exercise or make it easier.</li>
+            <li>Quality matters more than high reps.</li>
+            <li>Master the easier version first, then make it harder.</li>
+            <li>Work slowly and with control during every exercise.</li>
+          </ul>
+        </section>
+
+        <section class="card">
+          <h2>Track Your Progress</h2>
+
+          <div class="progress-box">
+            <p><strong>Once per week:</strong> Measure your waist in the morning.</p>
+            <p><strong>In training:</strong> Slowly increase reps or weight.</p>
+            <p><strong>On the scale:</strong> Do not stress every day. The trend matters.</p>
+            <p><strong>For exercises:</strong> More control first, then more reps, then more weight.</p>
+          </div>
+
+          <p style="margin-top: 15px;">
+            If your waist size goes down and your core exercises get stronger,
+            you are building the foundation for a visible V-Line.
+          </p>
+        </section>
+      `
+    },
+
+    ru: {
+      navHome: "Главная",
+      navTraining: "Тренировки",
+      navVline: "V-Line",
+      navFuture: "Будущее",
+
+      heroTitle: "KiveoX Training Forge",
+      heroSubtitle: "Forge your body. Build your future.",
+
+      trainingTitle: "Библиотека тренировок",
+      coreTitle: "Тренировка кора",
+      coreText: "Кор, V-Line, нижний пресс, косые мышцы живота и стабильность.",
+      coreButton: "Открыть пресс & V-Line",
+
+      backTitle: "Спина",
+      backText: "Верх спины, широчайшие и низ спины. Важно для осанки, стабильности и широкой формы.",
+      backButton: "Открыть спину",
+
+      lowerTitle: "Низ тела",
+      lowerText: "Квадрицепсы, бицепс бедра, икры и ягодицы. Большие мышцы для силы и формы.",
+      lowerButton: "Открыть ноги",
+
+      upperTitle: "Верх тела",
+      upperText: "Грудь, плечи и руки. Для сильного силуэта, стабильности и заметной формы.",
+      upperButton: "Открыть верх тела",
+
+      plansTitle: "Основные разделы",
+      beastTitle: "Beast Mode",
+      beastText: "Мотивация, челленджи и тяжёлые тренировки на будущее.",
+      beastTag: "Скоро",
+
+      forgeTitle: "Forge Strength",
+      forgeText: "Сила, дисциплина и крепкая база для всего тела.",
+      forgeTag: "Сила",
+
+      strongTitle: "Machine Mode",
+      strongText: "Gym is a tool. You are the machine.",
+      strongTag: "Мотивация",
+
+      futureTitle: "KiveoX Future",
+      suppTitle: "Supplements",
+      suppText: "Будущий раздел для основ, гайдов и понятной информации о добавках.",
+      suppTag: "Скоро",
+
+      merchTitle: "Merch",
+      merchText: "Будущий раздел для дизайнов KiveoX, дропов и тренировочной экипировки.",
+      merchTag: "Скоро",
+
+      progressTitle: "Progress Tracker",
+      progressText: "Позже можно будет отслеживать вес, талию, силовые показатели и тренировочные дни.",
+      progressTag: "Future Feature",
+
+      brandTitle: "KiveoX Brand",
+      brandText: "Логотип, дизайн, идентичность и Future-проект.",
+      brandTag: "Бренд",
+
+      footer: "© 2026 KiveoX Training Forge. Forge your future. All rights reserved.",
+
+      vlineHTML: `
+        <button class="back-btn" onclick="showView('home-view')">← Назад на главную</button>
+
+        <div class="detail-hero">
+          <h1>План V-Line Core</h1>
+          <p>Фокус на нижний пресс, косые мышцы, стабильность кора и чистую технику.</p>
+        </div>
+
+        <section class="card">
+          <h2>Самый важный пункт</h2>
+          <p>
+            V-Line появляется не только из-за упражнений на пресс. Она становится заметной при
+            <span class="highlight">более низком проценте жира</span>,
+            сильном нижнем прессе, косых мышцах живота и хорошей общей форме тела.
+          </p>
+
+          <div class="warning">
+            <strong>Запомни:</strong> Ты можешь уже сейчас тренировать основу для V-Line.
+            Но по-настоящему заметной она станет, когда объём талии будет снижаться.
+          </div>
+        </section>
+
+        <section class="card">
+          <h2>Для кого этот план?</h2>
+          <p>
+            Этот план подходит новичкам, продолжающим и всем, кто хочет целенаправленно улучшить форму кора.
+            Не нужно уметь идеально выполнять каждое упражнение с первого дня. Начни со своего уровня и прогрессируй шаг за шагом.
+          </p>
+
+          <div class="plan-grid">
+            <div class="day">
+              <h3>Beginner</h3>
+              <ul>
+                <li>Dead Bug – 3×10 на сторону</li>
+                <li>Обратные скручивания – 3×8–12</li>
+                <li>Планка – 3×20–30 секунд</li>
+                <li>Боковая планка – 2×15–25 секунд на сторону</li>
+              </ul>
+            </div>
+
+            <div class="day">
+              <h3>Intermediate</h3>
+              <ul>
+                <li>Ролик для пресса с колен – 3×6–10</li>
+                <li>Подъём коленей в висе – 3×8–12</li>
+                <li>Русские скручивания – 3×10 на сторону</li>
+                <li>Pallof Press – 3×10–12 на сторону</li>
+              </ul>
+            </div>
+
+            <div class="day">
+              <h3>Advanced</h3>
+              <ul>
+                <li>Ролик для пресса – 4×10</li>
+                <li>Подъём ног в висе – 4×8–12</li>
+                <li>Скручивания на блоке – 4×10–15</li>
+                <li>Боковая планка с опусканием таза – 3×10–15 на сторону</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="warning">
+            Новичков нельзя пропускать. Чистая техника важнее тяжёлых упражнений.
+            Если болит поясница, упрости упражнение или остановись.
+          </div>
+        </section>
+
+        <section class="card">
+          <h2>Главные упражнения для V-Line</h2>
+
+          <div class="exercise">
+            <strong>1. Dead Bug</strong>
+            <p>Отлично подходит новичкам. Тренирует напряжение кора, контроль и стабильность без сильной нагрузки на поясницу.</p>
+            <span class="sets">Beginner · 3 подхода × 10 на сторону</span>
+          </div>
+
+          <div class="exercise">
+            <strong>2. Ролик для пресса</strong>
+            <p>Очень сильное упражнение для глубоких мышц кора, нижнего пресса и общей стабильности. В начале лучше выполнять с колен.</p>
+            <span class="sets">Intermediate / Advanced · 4 подхода × 10 повторений</span>
+          </div>
+
+          <div class="exercise">
+            <strong>3. R-Twists / Русские скручивания</strong>
+            <p>Тренируют косые мышцы живота. Поворачивайся медленно и контролируемо, без рывков.</p>
+            <span class="sets">Intermediate · 4 подхода × 10 на сторону</span>
+          </div>
+
+          <div class="exercise">
+            <strong>4. Подъём коленей в висе</strong>
+            <p>Очень важно для нижнего пресса и внешнего вида V-Line. Поднимай колени контролируемо и слегка подкручивай таз.</p>
+            <span class="sets">Intermediate · 4 подхода × 8–12 повторений</span>
+          </div>
+
+          <div class="exercise">
+            <strong>5. Обратные скручивания</strong>
+            <p>Фокус на нижний пресс. Двигай не только ногами — подкручивай таз к груди.</p>
+            <span class="sets">Beginner / Intermediate · 3–4 подхода × 10–15 повторений</span>
+          </div>
+
+          <div class="exercise">
+            <strong>6. Скручивания на блоке</strong>
+            <p>Помогают сделать мышцы пресса сильнее и плотнее. Вес должен быть ощутимым, но техника должна оставаться чистой.</p>
+            <span class="sets">Intermediate / Advanced · 3–4 подхода × 10–15 повторений</span>
+          </div>
+
+          <div class="exercise">
+            <strong>7. Боковая планка с опусканием таза</strong>
+            <p>Очень хорошо тренирует боковую линию живота и косые мышцы.</p>
+            <span class="sets">Intermediate · 3 подхода × 10–15 на сторону</span>
+          </div>
+
+          <div class="exercise">
+            <strong>8. Pallof Press</strong>
+            <p>Тренирует боковую стабильность кора и помогает держать корпус сильным и контролируемым.</p>
+            <span class="sets">Beginner / Intermediate · 3 подхода × 10–12 на сторону</span>
+          </div>
+        </section>
+
+        <section class="card">
+          <h2>План тренировок: 2–3 раза в неделю</h2>
+
+          <div class="plan-grid">
+            <div class="day">
+              <h3>День A</h3>
+              <ul>
+                <li>Ролик для пресса – 4×10</li>
+                <li>Подъём коленей в висе – 4×8–12</li>
+                <li>R-Twists – 4×10 на сторону</li>
+                <li>Боковая планка – 3×30–45 секунд на сторону</li>
+              </ul>
+            </div>
+
+            <div class="day">
+              <h3>День B</h3>
+              <ul>
+                <li>Скручивания на блоке – 4×10–15</li>
+                <li>Обратные скручивания – 4×10–15</li>
+                <li>Ролик для пресса – 3×8–10</li>
+                <li>Pallof Press – 3×12 на сторону</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="warning">
+            Между тяжёлыми тренировками пресса всегда оставляй минимум 1 день отдыха.
+            Мышцам пресса тоже нужно восстановление.
+          </div>
+        </section>
+
+        <section class="card">
+          <h2>Beginner-план: 2–3 раза в неделю</h2>
+
+          <div class="plan-grid">
+            <div class="day">
+              <h3>Beginner День A</h3>
+              <ul>
+                <li>Dead Bug – 3×10 на сторону</li>
+                <li>Обратные скручивания – 3×8–12</li>
+                <li>Планка – 3×20–30 секунд</li>
+                <li>Боковая планка – 2×15–25 секунд на сторону</li>
+              </ul>
+            </div>
+
+            <div class="day">
+              <h3>Beginner День B</h3>
+              <ul>
+                <li>Pallof Press – 3×10 на сторону</li>
+                <li>Обратные скручивания – 3×10–12</li>
+                <li>Планка – 3×25–35 секунд</li>
+                <li>Dead Bug – 3×10 на сторону</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="warning">
+            Этот Beginner-план важен. Новичкам не стоит сразу начинать с тяжёлых роликов для пресса или сложных подъёмов ног в висе.
+            Сначала контроль, потом интенсивность.
+          </div>
+        </section>
+
+        <section class="card">
+          <h2>Дополнительно для лучшей V-формы</h2>
+          <p>Тренируй также спину и плечи. Более широкий верх тела визуально делает талию уже.</p>
+
+          <ul>
+            <li>Тяга верхнего блока – 3–4×8–12</li>
+            <li>Тяга на спину – 3–4×8–12</li>
+            <li>Жим на плечи – 3×8–12</li>
+            <li>Подъёмы в стороны – 3–4×12–20</li>
+            <li>Жим на грудь – 3–4×8–12</li>
+          </ul>
+        </section>
+
+        <section class="card">
+          <h2>Правила техники</h2>
+          <ul>
+            <li>Не выполняй упражнения рывками.</li>
+            <li>Всегда держи пресс напряжённым.</li>
+            <li>Во время ролика для пресса не прогибай поясницу.</li>
+            <li>Если болит поясница, остановись или упрости упражнение.</li>
+            <li>Качество важнее большого количества повторений.</li>
+            <li>Сначала освой лёгкую версию, потом усложняй.</li>
+            <li>В каждом упражнении работай медленно и контролируемо.</li>
+          </ul>
+        </section>
+
+        <section class="card">
+          <h2>Отслеживание прогресса</h2>
+
+          <div class="progress-box">
+            <p><strong>1 раз в неделю:</strong> измеряй талию утром.</p>
+            <p><strong>На тренировке:</strong> постепенно увеличивай повторения или вес.</p>
+            <p><strong>На весах:</strong> не переживай каждый день. Важен общий тренд.</p>
+            <p><strong>В упражнениях:</strong> сначала больше контроля, потом больше повторений, потом больше веса.</p>
+          </div>
+
+          <p style="margin-top: 15px;">
+            Если объём талии уменьшается, а упражнения на кор становятся сильнее,
+            ты строишь основу для заметной V-Line.
+          </p>
+        </section>
+      `
+    }
+  };
+
+  function showView(viewId) {
+    const views = document.querySelectorAll(".view");
+
+    views.forEach(function(view) {
+      view.classList.remove("active");
+    });
+
+    document.getElementById(viewId).classList.add("active");
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }
+
+  function scrollToSection(sectionId) {
+    setTimeout(function() {
+      const section = document.getElementById(sectionId);
+      if (section) {
+        section.scrollIntoView({ behavior: "smooth" });
+      }
+    }, 80);
+  }
+
+  function setText(id, value) {
+    const element = document.getElementById(id);
+    if (element) {
+      element.textContent = value;
+    }
+  }
+
+  function setLanguage(lang) {
+    const t = translations[lang];
+
+    document.documentElement.lang = lang;
+
+    setText("nav-home", t.navHome);
+    setText("nav-training", t.navTraining);
+    setText("nav-vline", t.navVline);
+    setText("nav-future", t.navFuture);
+
+    setText("hero-title", t.heroTitle);
+    setText("hero-subtitle", t.heroSubtitle);
+
+    setText("training-title", t.trainingTitle);
+    setText("core-title", t.coreTitle);
+    setText("core-text", t.coreText);
+    setText("core-button", t.coreButton);
+
+    setText("back-title", t.backTitle);
+    setText("back-text", t.backText);
+    setText("back-button", t.backButton);
+
+    setText("lower-title", t.lowerTitle);
+    setText("lower-text", t.lowerText);
+    setText("lower-button", t.lowerButton);
+
+    setText("upper-title", t.upperTitle);
+    setText("upper-text", t.upperText);
+    setText("upper-button", t.upperButton);
+
+    setText("plans-title", t.plansTitle);
+    setText("beast-title", t.beastTitle);
+    setText("beast-text", t.beastText);
+    setText("beast-tag", t.beastTag);
+
+    setText("forge-title", t.forgeTitle);
+    setText("forge-text", t.forgeText);
+    setText("forge-tag", t.forgeTag);
+
+    setText("strong-title", t.strongTitle);
+    setText("strong-text", t.strongText);
+    setText("strong-tag", t.strongTag);
+
+    setText("future-title", t.futureTitle);
+    setText("supp-title", t.suppTitle);
+    setText("supp-text", t.suppText);
+    setText("supp-tag", t.suppTag);
+
+    setText("merch-title", t.merchTitle);
+    setText("merch-text", t.merchText);
+    setText("merch-tag", t.merchTag);
+
+    setText("progress-title", t.progressTitle);
+    setText("progress-text", t.progressText);
+    setText("progress-tag", t.progressTag);
+
+    setText("brand-title", t.brandTitle);
+    setText("brand-text", t.brandText);
+    setText("brand-tag", t.brandTag);
+
+    setText("footer-text", t.footer);
+
+    const vlineView = document.getElementById("vline-view");
+    if (vlineView) {
+      vlineView.innerHTML = t.vlineHTML;
     }
 
-    function scrollToSection(sectionId) {
-      setTimeout(function() {
-        const section = document.getElementById(sectionId);
-        if (section) {
-          section.scrollIntoView({ behavior: "smooth" });
-        }
-      }, 80);
-    }
+    document.getElementById("btn-de").classList.remove("active");
+    document.getElementById("btn-en").classList.remove("active");
+    document.getElementById("btn-ru").classList.remove("active");
+    document.getElementById("btn-" + lang).classList.add("active");
 
-    function setLanguage(lang) {
-      document.documentElement.lang = lang;
+    localStorage.setItem("language", lang);
+  }
 
-      document.getElementById("btn-de").classList.remove("active");
-      document.getElementById("btn-en").classList.remove("active");
-      document.getElementById("btn-ru").classList.remove("active");
-      document.getElementById("btn-" + lang).classList.add("active");
-
-      localStorage.setItem("language", lang);
-    }
-
-    const savedLanguage = localStorage.getItem("language") || "de";
-    setLanguage(savedLanguage);
-  </script>
+  const savedLanguage = localStorage.getItem("language") || "de";
+  setLanguage(savedLanguage);
+</script>
 
   <script>
     window.va = window.va || function () {
