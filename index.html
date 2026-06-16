@@ -20,7 +20,7 @@
       font-family: Arial, sans-serif;
       background:
         radial-gradient(circle at top, rgba(0, 217, 255, 0.12), transparent 35%),
-        linear-gradient(rgba(15, 17, 21, 0.88), rgba(15, 17, 21, 0.95)),
+        linear-gradient(rgba(15, 17, 21, 0.90), rgba(15, 17, 21, 0.96)),
         url("assets/KiveoX Wallpaper.png");
       background-size: cover;
       background-position: center;
@@ -33,7 +33,7 @@
       position: sticky;
       top: 0;
       z-index: 999;
-      background: rgba(10, 12, 16, 0.92);
+      background: rgba(10, 12, 16, 0.94);
       backdrop-filter: blur(12px);
       border-bottom: 1px solid rgba(56, 189, 248, 0.35);
     }
@@ -54,6 +54,7 @@
       letter-spacing: 1px;
       text-decoration: none;
       white-space: nowrap;
+      cursor: pointer;
     }
 
     .navbar {
@@ -62,72 +63,21 @@
       flex-wrap: wrap;
     }
 
-    .navbar > li {
-      position: relative;
-    }
-
-    .navbar > li > a {
+    .navbar button {
+      background: none;
+      border: none;
       display: block;
       padding: 18px 16px;
       color: #ffcc00;
       text-decoration: none;
       font-weight: bold;
       font-size: 0.95rem;
+      cursor: pointer;
     }
 
-    .navbar > li > a:hover {
+    .navbar button:hover {
       color: #38bdf8;
       background: rgba(255, 255, 255, 0.04);
-    }
-
-    .dropdown {
-      display: none;
-      position: absolute;
-      top: 100%;
-      left: 0;
-      width: 245px;
-      background: #151922;
-      border: 1px solid #2a2f3a;
-      border-radius: 0 0 14px 14px;
-      overflow: hidden;
-      box-shadow: 0 12px 30px rgba(0,0,0,0.45);
-    }
-
-    .dropdown li {
-      list-style: none;
-      position: relative;
-    }
-
-    .dropdown a {
-      display: block;
-      padding: 13px 16px;
-      color: #facc15;
-      text-decoration: none;
-      font-size: 0.9rem;
-    }
-
-    .dropdown a:hover {
-      background: #202838;
-      color: #38bdf8;
-    }
-
-    .navbar li:hover > .dropdown {
-      display: block;
-    }
-
-    .sub-dropdown {
-      display: none;
-      position: absolute;
-      top: 0;
-      left: 100%;
-      width: 260px;
-      background: #111827;
-      border: 1px solid #2a2f3a;
-      box-shadow: 0 12px 30px rgba(0,0,0,0.45);
-    }
-
-    .dropdown li:hover > .sub-dropdown {
-      display: block;
     }
 
     .language-switcher {
@@ -164,12 +114,20 @@
       padding: 30px 20px 45px;
     }
 
+    .view {
+      display: none;
+    }
+
+    .view.active {
+      display: block;
+    }
+
     .hero {
       min-height: 470px;
       border-radius: 24px;
       border: 1px solid rgba(56, 189, 248, 0.35);
       background:
-        linear-gradient(rgba(0, 0, 0, 0.20), rgba(0, 0, 0, 0.78)),
+        linear-gradient(rgba(0, 0, 0, 0.18), rgba(0, 0, 0, 0.80)),
         url("assets/KiveoX Training Forge - Train Track Transform.png");
       background-size: cover;
       background-position: center;
@@ -200,38 +158,6 @@
       color: #facc15;
       font-weight: bold;
       margin-bottom: 24px;
-    }
-
-    .hero-actions {
-      display: flex;
-      justify-content: center;
-      gap: 14px;
-      flex-wrap: wrap;
-    }
-
-    .btn {
-      display: inline-block;
-      padding: 12px 18px;
-      border-radius: 999px;
-      text-decoration: none;
-      font-weight: bold;
-      transition: 0.2s ease;
-    }
-
-    .btn-primary {
-      background: #38bdf8;
-      color: #07111f;
-    }
-
-    .btn-secondary {
-      background: rgba(255, 255, 255, 0.08);
-      color: #facc15;
-      border: 1px solid rgba(250, 204, 21, 0.35);
-    }
-
-    .btn:hover {
-      transform: translateY(-2px);
-      filter: brightness(1.08);
     }
 
     .section-title {
@@ -270,15 +196,33 @@
       color: #d1d5db;
     }
 
-    .tag {
+    .tag,
+    .open-btn,
+    .back-btn {
       display: inline-block;
       margin-top: 16px;
-      padding: 6px 12px;
+      padding: 8px 13px;
       background: #38bdf8;
       color: #07111f;
       font-weight: bold;
       border-radius: 999px;
       font-size: 0.82rem;
+      text-decoration: none;
+      border: none;
+      cursor: pointer;
+      transition: 0.2s ease;
+    }
+
+    .tag:hover,
+    .open-btn:hover,
+    .back-btn:hover {
+      filter: brightness(1.1);
+      transform: translateY(-1px);
+    }
+
+    .back-btn {
+      margin-bottom: 20px;
+      background: #facc15;
     }
 
     .image-card {
@@ -294,7 +238,7 @@
       content: "";
       position: absolute;
       inset: 0;
-      background: linear-gradient(rgba(0,0,0,0.15), rgba(0,0,0,0.85));
+      background: linear-gradient(rgba(0,0,0,0.15), rgba(0,0,0,0.86));
     }
 
     .image-card-content {
@@ -318,14 +262,48 @@
       background-image: url("assets/KiveoX Training Future.png");
     }
 
-    .mini-plan {
-      margin-top: 12px;
-      list-style-position: inside;
+    .detail-hero {
+      border-radius: 24px;
+      background: rgba(23, 27, 34, 0.90);
+      border: 1px solid rgba(56, 189, 248, 0.35);
+      padding: 30px;
+      margin-bottom: 25px;
+      box-shadow: 0 20px 50px rgba(0,0,0,0.45);
     }
 
-    .mini-plan li {
-      color: #e5e7eb;
-      margin-bottom: 6px;
+    .detail-hero h1 {
+      color: #38bdf8;
+      font-size: clamp(2rem, 5vw, 3.4rem);
+      margin-bottom: 10px;
+    }
+
+    .detail-hero p {
+      color: #d1d5db;
+      font-size: 1.05rem;
+    }
+
+    .exercise {
+      background: rgba(15, 23, 42, 0.92);
+      border-left: 5px solid #38bdf8;
+      padding: 18px;
+      border-radius: 12px;
+      margin-bottom: 15px;
+    }
+
+    .exercise strong {
+      color: #ffffff;
+      font-size: 1.1rem;
+    }
+
+    .sets {
+      display: inline-block;
+      margin-top: 8px;
+      background: #38bdf8;
+      color: #07111f;
+      padding: 5px 10px;
+      border-radius: 999px;
+      font-weight: bold;
+      font-size: 0.9rem;
     }
 
     .footer {
@@ -344,24 +322,8 @@
         padding: 12px 20px;
       }
 
-      .navbar {
-        width: 100%;
-      }
-
-      .navbar > li > a {
+      .navbar button {
         padding: 12px 10px;
-      }
-
-      .dropdown,
-      .sub-dropdown {
-        position: static;
-        width: 100%;
-        box-shadow: none;
-        border-radius: 10px;
-      }
-
-      .sub-dropdown {
-        margin-left: 12px;
       }
     }
 
@@ -390,57 +352,13 @@
 
   <header class="topbar">
     <div class="nav-wrap">
-      <a class="brand" href="#home">KiveoX</a>
+      <button class="brand" onclick="showView('home-view')">KiveoX</button>
 
       <ul class="navbar">
-        <li><a href="#home" id="nav-home">Home</a></li>
-
-        <li>
-          <a href="#training" id="nav-training">Training</a>
-
-          <ul class="dropdown">
-            <li>
-              <a href="#core" id="nav-core">Core</a>
-              <ul class="sub-dropdown">
-                <li><a href="#core">V-Line Training</a></li>
-                <li><a href="#core">Unterer Bauch</a></li>
-                <li><a href="#core">Seitliche Bauchmuskeln</a></li>
-                <li><a href="#core">Core Stabilität</a></li>
-              </ul>
-            </li>
-
-            <li>
-              <a href="#back" id="nav-back">Rücken</a>
-              <ul class="sub-dropdown">
-                <li><a href="#back">Oberer Rücken</a></li>
-                <li><a href="#back">Lat / Breite</a></li>
-                <li><a href="#back">Unterer Rücken</a></li>
-              </ul>
-            </li>
-
-            <li>
-              <a href="#lower" id="nav-lower">Unterkörper</a>
-              <ul class="sub-dropdown">
-                <li><a href="#lower">Oberschenkel</a></li>
-                <li><a href="#lower">Beinbeuger</a></li>
-                <li><a href="#lower">Waden</a></li>
-                <li><a href="#lower">Glutes</a></li>
-              </ul>
-            </li>
-
-            <li>
-              <a href="#upper" id="nav-upper">Oberkörper</a>
-              <ul class="sub-dropdown">
-                <li><a href="#upper">Brust</a></li>
-                <li><a href="#upper">Schultern</a></li>
-                <li><a href="#upper">Arme</a></li>
-              </ul>
-            </li>
-          </ul>
-        </li>
-
-        <li><a href="#plans" id="nav-plans">Pläne</a></li>
-        <li><a href="#future" id="nav-future">Future</a></li>
+        <li><button onclick="showView('home-view')" id="nav-home">Home</button></li>
+        <li><button onclick="showView('home-view'); scrollToSection('training')" id="nav-training">Training</button></li>
+        <li><button onclick="showView('vline-view')" id="nav-vline">V-Line</button></li>
+        <li><button onclick="showView('home-view'); scrollToSection('future')" id="nav-future">Future</button></li>
       </ul>
     </div>
   </header>
@@ -453,119 +371,175 @@
 
   <main class="container">
 
-    <section class="hero" id="home">
-      <div class="hero-content">
-        <h1 id="hero-title">KiveoX Training Forge</h1>
-        <p id="hero-subtitle">Forge your body. Build your future.</p>
+    <section id="home-view" class="view active">
 
-        <div class="hero-actions">
-          <a href="#training" class="btn btn-primary" id="hero-btn-main">Training starten</a>
-          <a href="#future" class="btn btn-secondary" id="hero-btn-second">Future ansehen</a>
+      <section class="hero">
+        <div class="hero-content">
+          <h1 id="hero-title">KiveoX Training Forge</h1>
+          <p id="hero-subtitle">Forge your body. Build your future.</p>
         </div>
+      </section>
+
+      <section id="training">
+        <h2 class="section-title" id="training-title">Training Library</h2>
+
+        <div class="grid">
+          <div class="card">
+            <h2 id="core-title">Core Training</h2>
+            <p id="core-text">Core, V-Line, unterer Bauch, schräge Bauchmuskeln und Stabilität.</p>
+            <button class="open-btn" onclick="showView('vline-view')" id="core-button">Bauch & V-Line öffnen</button>
+          </div>
+
+          <div class="card">
+            <h2 id="back-title">Back</h2>
+            <p id="back-text">Upper back, lat width and lower back. Important for posture, stability and a wider look.</p>
+            <button class="open-btn" onclick="showView('back-view')" id="back-button">Back öffnen</button>
+          </div>
+
+          <div class="card">
+            <h2 id="lower-title">Lower Body</h2>
+            <p id="lower-text">Quads, hamstrings, calves and glutes. Big muscle groups for strength and shape.</p>
+            <button class="open-btn" onclick="showView('lower-view')" id="lower-button">Legs öffnen</button>
+          </div>
+
+          <div class="card">
+            <h2 id="upper-title">Upper Body</h2>
+            <p id="upper-text">Chest, shoulders and arms. For a strong silhouette, stability and visible shape.</p>
+            <button class="open-btn" onclick="showView('upper-view')" id="upper-button">Upper Body öffnen</button>
+          </div>
+        </div>
+      </section>
+
+      <section id="plans">
+        <h2 class="section-title" id="plans-title">Featured Areas</h2>
+
+        <div class="grid">
+          <div class="card image-card beast-card">
+            <div class="image-card-content">
+              <h2 id="beast-title">Beast Mode</h2>
+              <p id="beast-text">Motivation, Challenges und harte Trainingseinheiten für später.</p>
+              <span class="tag" id="beast-tag">Coming Soon</span>
+            </div>
+          </div>
+
+          <div class="card image-card forge-card">
+            <div class="image-card-content">
+              <h2 id="forge-title">Forge Strength</h2>
+              <p id="forge-text">Kraft, Disziplin und starke Basics für den ganzen Körper.</p>
+              <span class="tag" id="forge-tag">Strength</span>
+            </div>
+          </div>
+
+          <div class="card image-card strong-card">
+            <div class="image-card-content">
+              <h2 id="strong-title">Machine Mode</h2>
+              <p id="strong-text">Gym is a tool. You are the machine.</p>
+              <span class="tag" id="strong-tag">Motivation</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="future">
+        <h2 class="section-title" id="future-title">KiveoX Future</h2>
+
+        <div class="grid">
+          <div class="card">
+            <h2 id="supp-title">Supplements</h2>
+            <p id="supp-text">Späterer Bereich für Basics, Guides und klare Infos zu Supplements.</p>
+            <span class="tag" id="supp-tag">Coming Soon</span>
+          </div>
+
+          <div class="card">
+            <h2 id="merch-title">Merch</h2>
+            <p id="merch-text">Späterer Bereich für KiveoX Designs, Drops und Training Gear.</p>
+            <span class="tag" id="merch-tag">Coming Soon</span>
+          </div>
+
+          <div class="card">
+            <h2 id="progress-title">Progress Tracker</h2>
+            <p id="progress-text">Später kannst du Gewicht, Bauchumfang, Kraftwerte und Trainingstage tracken.</p>
+            <span class="tag" id="progress-tag">Future Feature</span>
+          </div>
+
+          <div class="card image-card logo-card">
+            <div class="image-card-content">
+              <h2 id="brand-title">KiveoX Brand</h2>
+              <p id="brand-text">Logo, Design, Identity und Future-Projekt.</p>
+              <span class="tag" id="brand-tag">Brand</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </section>
+
+    <section id="vline-view" class="view">
+      <button class="back-btn" onclick="showView('home-view')" id="back-home-1">← Zurück zur Home</button>
+
+      <div class="detail-hero">
+        <h1 id="vline-detail-title">V-Line Core Plan</h1>
+        <p id="vline-detail-text">Fokus auf unteren Bauch, Obliques, Core-Stabilität und saubere Technik.</p>
+      </div>
+
+      <div class="exercise">
+        <strong>1. AB Rollouts</strong>
+        <p>Sehr stark für tiefen Core, unteren Bauch und Körperspannung. Am Anfang am besten auf den Knien machen.</p>
+        <span class="sets">4 Sets × 10 Reps</span>
+      </div>
+
+      <div class="exercise">
+        <strong>2. Hanging Knee Raises</strong>
+        <p>Sehr wichtig für unteren Bauch und V-Line-Optik. Knie kontrolliert hochziehen und Becken leicht einrollen.</p>
+        <span class="sets">4 Sets × 8–12 Reps</span>
+      </div>
+
+      <div class="exercise">
+        <strong>3. Reverse Crunches</strong>
+        <p>Fokus auf unteren Bauch. Nicht nur Beine bewegen, sondern das Becken Richtung Brust einrollen.</p>
+        <span class="sets">3–4 Sets × 10–15 Reps</span>
+      </div>
+
+      <div class="exercise">
+        <strong>4. Russian Twists</strong>
+        <p>Trainiert die schrägen Bauchmuskeln. Langsam und kontrolliert drehen, nicht mit Schwung reißen.</p>
+        <span class="sets">4 Sets × 10 Reps pro Seite</span>
+      </div>
+
+      <div class="exercise">
+        <strong>5. Side Plank Hip Dips</strong>
+        <p>Sehr gut für seitliche Bauchlinie und schräge Bauchmuskeln.</p>
+        <span class="sets">3 Sets × 10–15 Reps pro Seite</span>
+      </div>
+
+      <div class="exercise">
+        <strong>6. Pallof Press</strong>
+        <p>Trainiert seitliche Core-Stabilität und hilft, den Bauch fest und kontrolliert zu halten.</p>
+        <span class="sets">3 Sets × 10–12 Reps pro Seite</span>
       </div>
     </section>
 
-    <section id="training">
-      <h2 class="section-title" id="training-title">Training Library</h2>
-
-      <div class="grid">
-        <div class="card" id="core">
-          <h2 id="core-title">Core / V-Line</h2>
-          <p id="core-text">AB Rollouts, Hanging Knee Raises, Reverse Crunches, Russian Twists, Side Planks und Pallof Press.</p>
-          <span class="tag" id="core-tag">Bauch & V-Line</span>
-        </div>
-
-        <div class="card" id="back">
-          <h2 id="back-title">Rücken</h2>
-          <p id="back-text">Oberer Rücken, Lat-Breite und unterer Rücken. Wichtig für Haltung, Stabilität und breite Optik.</p>
-          <span class="tag" id="back-tag">Rückenform</span>
-        </div>
-
-        <div class="card" id="lower">
-          <h2 id="lower-title">Unterkörper</h2>
-          <p id="lower-text">Oberschenkel, Beinbeuger, Waden und Glutes. Große Muskelgruppen für Kraft und Form.</p>
-          <span class="tag" id="lower-tag">Beine</span>
-        </div>
-
-        <div class="card" id="upper">
-          <h2 id="upper-title">Oberkörper</h2>
-          <p id="upper-text">Brust, Schultern und Arme. Für starke Silhouette, Stabilität und sichtbare Form.</p>
-          <span class="tag" id="upper-tag">Oberkörper</span>
-        </div>
+    <section id="back-view" class="view">
+      <button class="back-btn" onclick="showView('home-view')">← Zurück zur Home</button>
+      <div class="detail-hero">
+        <h1>Back Training</h1>
+        <p>Oberer Rücken, Lat-Breite und unterer Rücken. Diese Detailseite kannst du später weiter ausbauen.</p>
       </div>
     </section>
 
-    <section id="plans">
-      <h2 class="section-title" id="plans-title">Featured Plans</h2>
-
-      <div class="grid">
-        <div class="card">
-          <h2 id="vline-title">V-Line Core Plan</h2>
-          <p id="vline-text">Fokus auf unteren Bauch, Obliques und Core-Stabilität.</p>
-          <ul class="mini-plan">
-            <li id="vline-1">AB Rollouts – 4×10</li>
-            <li id="vline-2">Hanging Knee Raises – 4×8–12</li>
-            <li id="vline-3">Russian Twists – 4×10 pro Seite</li>
-            <li id="vline-4">Side Plank – 3×30–45 Sekunden</li>
-          </ul>
-          <span class="tag" id="vline-tag">Core Focus</span>
-        </div>
-
-        <div class="card image-card beast-card">
-          <div class="image-card-content">
-            <h2 id="beast-title">Beast Mode</h2>
-            <p id="beast-text">Motivation, Challenges und harte Trainingseinheiten für später.</p>
-            <span class="tag" id="beast-tag">Coming Soon</span>
-          </div>
-        </div>
-
-        <div class="card image-card forge-card">
-          <div class="image-card-content">
-            <h2 id="forge-title">Forge Strength</h2>
-            <p id="forge-text">Kraft, Disziplin und starke Basics für den ganzen Körper.</p>
-            <span class="tag" id="forge-tag">Strength</span>
-          </div>
-        </div>
-
-        <div class="card image-card strong-card">
-          <div class="image-card-content">
-            <h2 id="strong-title">Machine Mode</h2>
-            <p id="strong-text">Gym is a tool. You are the machine.</p>
-            <span class="tag" id="strong-tag">Motivation</span>
-          </div>
-        </div>
+    <section id="lower-view" class="view">
+      <button class="back-btn" onclick="showView('home-view')">← Zurück zur Home</button>
+      <div class="detail-hero">
+        <h1>Lower Body Training</h1>
+        <p>Oberschenkel, Beinbeuger, Waden und Glutes. Diese Detailseite kannst du später weiter ausbauen.</p>
       </div>
     </section>
 
-    <section id="future">
-      <h2 class="section-title" id="future-title">KiveoX Future</h2>
-
-      <div class="grid">
-        <div class="card">
-          <h2 id="supp-title">Supplements</h2>
-          <p id="supp-text">Späterer Bereich für Basics, Guides und klare Infos zu Supplements.</p>
-          <span class="tag" id="supp-tag">Coming Soon</span>
-        </div>
-
-        <div class="card">
-          <h2 id="merch-title">Merch</h2>
-          <p id="merch-text">Späterer Bereich für KiveoX Designs, Drops und Training Gear.</p>
-          <span class="tag" id="merch-tag">Coming Soon</span>
-        </div>
-
-        <div class="card">
-          <h2 id="progress-title">Progress Tracker</h2>
-          <p id="progress-text">Später kannst du Gewicht, Bauchumfang, Kraftwerte und Trainingstage tracken.</p>
-          <span class="tag" id="progress-tag">Future Feature</span>
-        </div>
-
-        <div class="card image-card logo-card">
-          <div class="image-card-content">
-            <h2 id="brand-title">KiveoX Brand</h2>
-            <p id="brand-text">Logo, Design, Identity und Future-Projekt.</p>
-            <span class="tag" id="brand-tag">Brand</span>
-          </div>
-        </div>
+    <section id="upper-view" class="view">
+      <button class="back-btn" onclick="showView('home-view')">← Zurück zur Home</button>
+      <div class="detail-hero">
+        <h1>Upper Body Training</h1>
+        <p>Brust, Schultern und Arme. Diese Detailseite kannst du später weiter ausbauen.</p>
       </div>
     </section>
 
@@ -576,312 +550,34 @@
   </main>
 
   <script>
-    const translations = {
-      de: {
-        navHome: "Home",
-        navTraining: "Training",
-        navCore: "Core",
-        navBack: "Rücken",
-        navLower: "Unterkörper",
-        navUpper: "Oberkörper",
-        navPlans: "Pläne",
-        navFuture: "Future",
+    function showView(viewId) {
+      const views = document.querySelectorAll(".view");
 
-        heroTitle: "KiveoX Training Forge",
-        heroSubtitle: "Forge your body. Build your future.",
-        heroBtnMain: "Training starten",
-        heroBtnSecond: "Future ansehen",
+      views.forEach(function(view) {
+        view.classList.remove("active");
+      });
 
-        trainingTitle: "Training Library",
-        coreTitle: "Core / V-Line",
-        coreText: "AB Rollouts, Hanging Knee Raises, Reverse Crunches, Russian Twists, Side Planks und Pallof Press.",
-        coreTag: "Bauch & V-Line",
+      document.getElementById(viewId).classList.add("active");
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
 
-        backTitle: "Rücken",
-        backText: "Oberer Rücken, Lat-Breite und unterer Rücken. Wichtig für Haltung, Stabilität und breite Optik.",
-        backTag: "Rückenform",
-
-        lowerTitle: "Unterkörper",
-        lowerText: "Oberschenkel, Beinbeuger, Waden und Glutes. Große Muskelgruppen für Kraft und Form.",
-        lowerTag: "Beine",
-
-        upperTitle: "Oberkörper",
-        upperText: "Brust, Schultern und Arme. Für starke Silhouette, Stabilität und sichtbare Form.",
-        upperTag: "Oberkörper",
-
-        plansTitle: "Featured Plans",
-        vlineTitle: "V-Line Core Plan",
-        vlineText: "Fokus auf unteren Bauch, Obliques und Core-Stabilität.",
-        vline1: "AB Rollouts – 4×10",
-        vline2: "Hanging Knee Raises – 4×8–12",
-        vline3: "Russian Twists – 4×10 pro Seite",
-        vline4: "Side Plank – 3×30–45 Sekunden",
-        vlineTag: "Core Focus",
-
-        beastTitle: "Beast Mode",
-        beastText: "Motivation, Challenges und harte Trainingseinheiten für später.",
-        beastTag: "Coming Soon",
-
-        forgeTitle: "Forge Strength",
-        forgeText: "Kraft, Disziplin und starke Basics für den ganzen Körper.",
-        forgeTag: "Strength",
-
-        strongTitle: "Machine Mode",
-        strongText: "Gym is a tool. You are the machine.",
-        strongTag: "Motivation",
-
-        futureTitle: "KiveoX Future",
-        suppTitle: "Supplements",
-        suppText: "Späterer Bereich für Basics, Guides und klare Infos zu Supplements.",
-        suppTag: "Coming Soon",
-
-        merchTitle: "Merch",
-        merchText: "Späterer Bereich für KiveoX Designs, Drops und Training Gear.",
-        merchTag: "Coming Soon",
-
-        progressTitle: "Progress Tracker",
-        progressText: "Später kannst du Gewicht, Bauchumfang, Kraftwerte und Trainingstage tracken.",
-        progressTag: "Future Feature",
-
-        brandTitle: "KiveoX Brand",
-        brandText: "Logo, Design, Identity und Future-Projekt.",
-        brandTag: "Brand",
-
-        footer: "© 2026 KiveoX Training Forge. Forge your future. All rights reserved."
-      },
-
-      en: {
-        navHome: "Home",
-        navTraining: "Training",
-        navCore: "Core",
-        navBack: "Back",
-        navLower: "Lower Body",
-        navUpper: "Upper Body",
-        navPlans: "Plans",
-        navFuture: "Future",
-
-        heroTitle: "KiveoX Training Forge",
-        heroSubtitle: "Forge your body. Build your future.",
-        heroBtnMain: "Start Training",
-        heroBtnSecond: "View Future",
-
-        trainingTitle: "Training Library",
-        coreTitle: "Core / V-Line",
-        coreText: "Ab Rollouts, Hanging Knee Raises, Reverse Crunches, Russian Twists, Side Planks and Pallof Press.",
-        coreTag: "Abs & V-Line",
-
-        backTitle: "Back",
-        backText: "Upper back, lat width and lower back. Important for posture, stability and a wider look.",
-        backTag: "Back Shape",
-
-        lowerTitle: "Lower Body",
-        lowerText: "Quads, hamstrings, calves and glutes. Big muscle groups for strength and shape.",
-        lowerTag: "Legs",
-
-        upperTitle: "Upper Body",
-        upperText: "Chest, shoulders and arms. For a strong silhouette, stability and visible shape.",
-        upperTag: "Upper Body",
-
-        plansTitle: "Featured Plans",
-        vlineTitle: "V-Line Core Plan",
-        vlineText: "Focus on lower abs, obliques and core stability.",
-        vline1: "Ab Rollouts – 4×10",
-        vline2: "Hanging Knee Raises – 4×8–12",
-        vline3: "Russian Twists – 4×10 per side",
-        vline4: "Side Plank – 3×30–45 seconds",
-        vlineTag: "Core Focus",
-
-        beastTitle: "Beast Mode",
-        beastText: "Motivation, challenges and intense training sessions for later.",
-        beastTag: "Coming Soon",
-
-        forgeTitle: "Forge Strength",
-        forgeText: "Strength, discipline and strong basics for the whole body.",
-        forgeTag: "Strength",
-
-        strongTitle: "Machine Mode",
-        strongText: "Gym is a tool. You are the machine.",
-        strongTag: "Motivation",
-
-        futureTitle: "KiveoX Future",
-        suppTitle: "Supplements",
-        suppText: "Future section for basics, guides and clear supplement information.",
-        suppTag: "Coming Soon",
-
-        merchTitle: "Merch",
-        merchText: "Future section for KiveoX designs, drops and training gear.",
-        merchTag: "Coming Soon",
-
-        progressTitle: "Progress Tracker",
-        progressText: "Later you can track weight, waist size, strength numbers and training days.",
-        progressTag: "Future Feature",
-
-        brandTitle: "KiveoX Brand",
-        brandText: "Logo, design, identity and future project.",
-        brandTag: "Brand",
-
-        footer: "© 2026 KiveoX Training Forge. Forge your future. All rights reserved."
-      },
-
-      ru: {
-        navHome: "Главная",
-        navTraining: "Тренировки",
-        navCore: "Кор",
-        navBack: "Спина",
-        navLower: "Низ тела",
-        navUpper: "Верх тела",
-        navPlans: "Планы",
-        navFuture: "Будущее",
-
-        heroTitle: "KiveoX Training Forge",
-        heroSubtitle: "Forge your body. Build your future.",
-        heroBtnMain: "Начать тренировку",
-        heroBtnSecond: "Посмотреть Future",
-
-        trainingTitle: "Библиотека тренировок",
-        coreTitle: "Кор / V-Line",
-        coreText: "Ролик для пресса, подъём коленей в висе, обратные скручивания, русские скручивания, боковая планка и Pallof Press.",
-        coreTag: "Пресс & V-Line",
-
-        backTitle: "Спина",
-        backText: "Верх спины, широчайшие и низ спины. Важно для осанки, стабильности и широкой формы.",
-        backTag: "Форма спины",
-
-        lowerTitle: "Низ тела",
-        lowerText: "Квадрицепсы, бицепс бедра, икры и ягодицы. Большие мышцы для силы и формы.",
-        lowerTag: "Ноги",
-
-        upperTitle: "Верх тела",
-        upperText: "Грудь, плечи и руки. Для сильного силуэта, стабильности и заметной формы.",
-        upperTag: "Верх тела",
-
-        plansTitle: "Главные планы",
-        vlineTitle: "План V-Line Core",
-        vlineText: "Фокус на нижний пресс, косые мышцы и стабильность кора.",
-        vline1: "Ролик для пресса – 4×10",
-        vline2: "Подъём коленей в висе – 4×8–12",
-        vline3: "Русские скручивания – 4×10 на сторону",
-        vline4: "Боковая планка – 3×30–45 секунд",
-        vlineTag: "Core Focus",
-
-        beastTitle: "Beast Mode",
-        beastText: "Мотивация, челленджи и тяжёлые тренировки на будущее.",
-        beastTag: "Скоро",
-
-        forgeTitle: "Forge Strength",
-        forgeText: "Сила, дисциплина и крепкая база для всего тела.",
-        forgeTag: "Сила",
-
-        strongTitle: "Machine Mode",
-        strongText: "Gym is a tool. You are the machine.",
-        strongTag: "Мотивация",
-
-        futureTitle: "KiveoX Future",
-        suppTitle: "Supplements",
-        suppText: "Будущий раздел для основ, гайдов и понятной информации о добавках.",
-        suppTag: "Скоро",
-
-        merchTitle: "Merch",
-        merchText: "Будущий раздел для дизайнов KiveoX, дропов и тренировочной экипировки.",
-        merchTag: "Скоро",
-
-        progressTitle: "Progress Tracker",
-        progressText: "Позже можно будет отслеживать вес, талию, силовые показатели и тренировочные дни.",
-        progressTag: "Future Feature",
-
-        brandTitle: "KiveoX Brand",
-        brandText: "Логотип, дизайн, идентичность и Future-проект.",
-        brandTag: "Бренд",
-
-        footer: "© 2026 KiveoX Training Forge. Forge your future. All rights reserved."
-      }
-    };
-
-    const map = {
-      navHome: "nav-home",
-      navTraining: "nav-training",
-      navCore: "nav-core",
-      navBack: "nav-back",
-      navLower: "nav-lower",
-      navUpper: "nav-upper",
-      navPlans: "nav-plans",
-      navFuture: "nav-future",
-
-      heroTitle: "hero-title",
-      heroSubtitle: "hero-subtitle",
-      heroBtnMain: "hero-btn-main",
-      heroBtnSecond: "hero-btn-second",
-
-      trainingTitle: "training-title",
-      coreTitle: "core-title",
-      coreText: "core-text",
-      coreTag: "core-tag",
-      backTitle: "back-title",
-      backText: "back-text",
-      backTag: "back-tag",
-      lowerTitle: "lower-title",
-      lowerText: "lower-text",
-      lowerTag: "lower-tag",
-      upperTitle: "upper-title",
-      upperText: "upper-text",
-      upperTag: "upper-tag",
-
-      plansTitle: "plans-title",
-      vlineTitle: "vline-title",
-      vlineText: "vline-text",
-      vline1: "vline-1",
-      vline2: "vline-2",
-      vline3: "vline-3",
-      vline4: "vline-4",
-      vlineTag: "vline-tag",
-
-      beastTitle: "beast-title",
-      beastText: "beast-text",
-      beastTag: "beast-tag",
-
-      forgeTitle: "forge-title",
-      forgeText: "forge-text",
-      forgeTag: "forge-tag",
-
-      strongTitle: "strong-title",
-      strongText: "strong-text",
-      strongTag: "strong-tag",
-
-      futureTitle: "future-title",
-      suppTitle: "supp-title",
-      suppText: "supp-text",
-      suppTag: "supp-tag",
-      merchTitle: "merch-title",
-      merchText: "merch-text",
-      merchTag: "merch-tag",
-      progressTitle: "progress-title",
-      progressText: "progress-text",
-      progressTag: "progress-tag",
-
-      brandTitle: "brand-title",
-      brandText: "brand-text",
-      brandTag: "brand-tag",
-
-      footer: "footer-text"
-    };
+    function scrollToSection(sectionId) {
+      setTimeout(function() {
+        const section = document.getElementById(sectionId);
+        if (section) {
+          section.scrollIntoView({ behavior: "smooth" });
+        }
+      }, 80);
+    }
 
     function setLanguage(lang) {
-      const selected = translations[lang];
-
       document.documentElement.lang = lang;
-
-      for (const key in map) {
-        const element = document.getElementById(map[key]);
-        if (element && selected[key]) {
-          element.textContent = selected[key];
-        }
-      }
 
       document.getElementById("btn-de").classList.remove("active");
       document.getElementById("btn-en").classList.remove("active");
       document.getElementById("btn-ru").classList.remove("active");
-
       document.getElementById("btn-" + lang).classList.add("active");
+
       localStorage.setItem("language", lang);
     }
 
