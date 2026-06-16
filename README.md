@@ -6,7 +6,7 @@ All rights reserved.
 This project and its code may not be copied, modified, redistributed, or used without permission.
 
 
-
+0.1.0 - Added Pictures and Logos / Brands.
 0.0.8 - Removed duplicate V-Line section and added detail views.
 0.0.7 - Added KiveoX homepage visuals and asset structure.
 0.0.6 - Importing Images.
