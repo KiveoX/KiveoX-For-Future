@@ -7,7 +7,7 @@ This project and its code may not be copied, modified, redistributed, or used wi
 
 
 
-
+0.0.8 - Removed duplicate V-Line section and added detail views.
 0.0.7 - Added KiveoX homepage visuals and asset structure.
 0.0.6 - Importing Images.
 0.0.5 - Added the assets to import the images.
