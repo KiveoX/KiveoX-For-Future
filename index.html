@@ -493,13 +493,15 @@
             </div>
           </div>
 
-          <div class="card image-card forge-card">
-            <div class="image-card-content">
-              <h2 id="forge-title">Forge Strength</h2>
-              <p id="forge-text">Kraft, Disziplin und starke Basics für den ganzen Körper.</p>
-              <span class="tag" id="forge-tag">Strength</span>
-            </div>
+        <div class="card image-card forge-card" onclick="showView('strength-view')">
+          <div class="image-card-content">
+            <h2 id="forge-title">Forge Strength</h2>
+            <p id="forge-text">Kraft, Disziplin, Strength Training, BMI und Kalorienrechner.</p>
+            <button class="open-btn" onclick="event.stopPropagation(); showView('strength-view')">
+              Strength öffnen
+            </button>
           </div>
+        </div>
 
           <div class="card image-card strong-card">
             <div class="image-card-content">
