@@ -842,6 +842,124 @@
         grid-template-columns: 1fr;
       }
     }
+
+
+    /* MEINE PLÄNE DROPDOWN */
+
+    .navbar > li {
+      position: relative;
+    }
+
+    .dropdown {
+      position: relative;
+    }
+
+    .dropdown-menu {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      min-width: 230px;
+      list-style: none;
+      margin: 0;
+      padding: 8px 0;
+      background: rgba(10, 12, 16, 0.98);
+      border: 1px solid rgba(56, 189, 248, 0.35);
+      border-radius: 0 0 14px 14px;
+      box-shadow: 0 18px 40px rgba(0, 0, 0, 0.45);
+      z-index: 1000;
+    }
+
+    .dropdown:hover .dropdown-menu {
+      display: block;
+    }
+
+    .dropdown-menu li {
+      margin: 0;
+      color: #e5e7eb;
+    }
+
+    .dropdown-menu button {
+      width: 100%;
+      text-align: left;
+      padding: 14px 18px;
+      color: #facc15;
+      background: transparent;
+      border: none;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    .dropdown-menu button:hover {
+      color: #38bdf8;
+      background: rgba(56, 189, 248, 0.08);
+    }
+
+    /* STOFFWECHSEL PAGE */
+
+    .stoffwechsel-video-wrap {
+      display: grid;
+      grid-template-columns: minmax(280px, 420px) 1fr;
+      gap: 26px;
+      align-items: start;
+    }
+
+    .stoffwechsel-video-card {
+      background: rgba(15, 23, 42, 0.94);
+      border: 1px solid rgba(56, 189, 248, 0.35);
+      border-radius: 24px;
+      padding: 14px;
+      box-shadow: 0 20px 50px rgba(0,0,0,0.45);
+    }
+
+    .stoffwechsel-video-card video {
+      width: 100%;
+      border-radius: 18px;
+      display: block;
+      background: #000;
+    }
+
+    .stoffwechsel-info-card {
+      background: rgba(23, 27, 34, 0.9);
+      border: 1px solid #2a2f3a;
+      border-radius: 22px;
+      padding: 28px;
+    }
+
+    .stoffwechsel-info-card h2 {
+      color: #facc15;
+      margin-bottom: 14px;
+    }
+
+    .stoffwechsel-info-card p {
+      color: #e5e7eb;
+      margin-bottom: 14px;
+    }
+
+    .stoffwechsel-points {
+      margin-top: 18px;
+      margin-left: 20px;
+    }
+
+    .stoffwechsel-points li {
+      margin-bottom: 10px;
+      color: #e5e7eb;
+    }
+
+    @media (max-width: 900px) {
+      .dropdown-menu {
+        position: static;
+        border-radius: 14px;
+        min-width: 100%;
+      }
+    }
+
+    @media (max-width: 850px) {
+      .stoffwechsel-video-wrap {
+        grid-template-columns: 1fr;
+      }
+    }
+
   </style>
 </head>
 
@@ -853,10 +971,16 @@
 
       <ul class="navbar">
         <li class="dropdown">
-        <button id="nav-myplans">Meine Pläne</button>
-        <li><button onclick="showView('stoffwechsel-view')">Stoffwechsel</button></li>
+          <button id="nav-myplans">Meine Pläne</button>
+
+          <ul class="dropdown-menu">
+            <li><button onclick="showView('stoffwechsel-view')">Stoffwechsel</button></li>
+          </ul>
+        </li>
+
         <li><button onclick="showView('home-view')" id="nav-home">Home</button></li>
         <li><button onclick="showView('home-view'); scrollToSection('training')" id="nav-training">Training</button></li>
+        <li><button onclick="showView('vline-view')" id="nav-vline">V-Line</button></li>
         <li><button onclick="showView('home-view'); scrollToSection('future')" id="nav-future">Future</button></li>
       </ul>
     </div>
@@ -877,51 +1001,7 @@
           <h1 id="hero-title">KiveoX Training Forge</h1>
           <p id="hero-subtitle">Forge your body. Build your future.</p>
         </div>
-
-  <section id="stoffwechsel-view" class="view">
-  <button class="back-btn" onclick="showView('home-view')">
-    ← Zurück zur Home
-  </button>
-
-  <div class="detail-hero">
-    <h1>Stoffwechsel</h1>
-    <p>
-      Das innere Feuer des Körpers: Insulin, Fettverbrennung,
-      Energie, Bauchfett und gesunde Alltagssignale.
-    </p>
-  </div>
-
-  <div class="stoffwechsel-video-wrap">
-    <div class="stoffwechsel-video-card">
-      <video controls playsinline preload="metadata">
-        <source src="assets/Stoffwechsel.mp4" type="video/mp4">
-        Dein Browser unterstützt dieses Videoformat nicht.
-      </video>
-    </div>
-
-    <div class="stoffwechsel-info-card">
-      <h2>Stoffwechsel Video</h2>
-
-      <p>
-        Hier findest du dein Video über Stoffwechsel, Insulin,
-        Fettverbrennung und Energiehaushalt.
-      </p>
-
-      <p>
-        Der Bereich kann später erweitert werden mit Makros,
-        persönlichen Erfahrungen, Blutwerten und Fortschritt.
-      </p>
-
-      <ul class="stoffwechsel-points">
-        <li><span class="highlight">Insulin:</span> Speicherhormon und Schlüssel für Blutzucker.</li>
-        <li><span class="highlight">Fettverbrennung:</span> leichter, wenn Insulin niedriger ist.</li>
-        <li><span class="highlight">Muskelmasse:</span> erhöht den Energieverbrauch.</li>
-        <li><span class="highlight">Schlaf & Stress:</span> beeinflussen Hunger und Bauchfett.</li>
-      </ul>
-    </div>
-  </div>
 </section>
-      </section>
 
       <section id="training">
         <h2 class="section-title" id="training-title">KiveoX Library</h2>
@@ -1049,6 +1129,51 @@
     <section id="lower-view" class="view"></section>
 
     <section id="upper-view" class="view"></section>
+
+
+    <section id="stoffwechsel-view" class="view">
+      <button class="back-btn" onclick="showView('home-view')">
+        ← Zurück zur Home
+      </button>
+
+      <div class="detail-hero">
+        <h1>Stoffwechsel</h1>
+        <p>
+          Das innere Feuer des Körpers: Insulin, Fettverbrennung,
+          Energie, Bauchfett und gesunde Alltagssignale.
+        </p>
+      </div>
+
+      <div class="stoffwechsel-video-wrap">
+        <div class="stoffwechsel-video-card">
+          <video controls playsinline preload="metadata">
+            <source src="assets/Stoffwechsel.mp4" type="video/mp4">
+            Dein Browser unterstützt dieses Videoformat nicht.
+          </video>
+        </div>
+
+        <div class="stoffwechsel-info-card">
+          <h2>Stoffwechsel Video</h2>
+
+          <p>
+            Hier findest du dein Video über Stoffwechsel, Insulin,
+            Fettverbrennung und Energiehaushalt.
+          </p>
+
+          <p>
+            Der Bereich kann später erweitert werden mit Makros,
+            persönlichen Erfahrungen, Blutwerten und Fortschritt.
+          </p>
+
+          <ul class="stoffwechsel-points">
+            <li><span class="highlight">Insulin:</span> Speicherhormon und Schlüssel für Blutzucker.</li>
+            <li><span class="highlight">Fettverbrennung:</span> leichter, wenn Insulin niedriger ist.</li>
+            <li><span class="highlight">Muskelmasse:</span> erhöht den Energieverbrauch.</li>
+            <li><span class="highlight">Schlaf & Stress:</span> beeinflussen Hunger und Bauchfett.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
 
     <footer class="footer">
       <p id="footer-text">© 2026 KiveoX Training Forge. Forge your future. All rights reserved.</p>
@@ -1457,6 +1582,7 @@
       setText("nav-training", t.navTraining);
       setText("nav-vline", t.navVline);
       setText("nav-future", t.navFuture);
+      setText("nav-myplans", "Meine Pläne");
       setText("hero-title", t.heroTitle);
       setText("hero-subtitle", t.heroSubtitle);
       setText("training-title", t.trainingTitle);
