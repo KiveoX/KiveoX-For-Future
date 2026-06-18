@@ -787,6 +787,61 @@
       letter-spacing: 0.6px;
       text-transform: uppercase;
     }
+
+    .stoffwechsel-video-wrap {
+      display: grid;
+      grid-template-columns: minmax(280px, 420px) 1fr;
+      gap: 26px;
+      align-items: start;
+    }
+    
+    .stoffwechsel-video-card {
+      background: rgba(15, 23, 42, 0.94);
+      border: 1px solid rgba(56, 189, 248, 0.35);
+      border-radius: 24px;
+      padding: 14px;
+      box-shadow: 0 20px 50px rgba(0,0,0,0.45);
+    }
+    
+    .stoffwechsel-video-card video {
+      width: 100%;
+      border-radius: 18px;
+      display: block;
+      background: #000;
+    }
+    
+    .stoffwechsel-info-card {
+      background: rgba(23, 27, 34, 0.9);
+      border: 1px solid #2a2f3a;
+      border-radius: 22px;
+      padding: 28px;
+    }
+    
+    .stoffwechsel-info-card h2 {
+      color: #facc15;
+      margin-bottom: 14px;
+    }
+    
+    .stoffwechsel-info-card p {
+      color: #e5e7eb;
+      margin-bottom: 14px;
+    }
+    
+    .stoffwechsel-points {
+      margin-top: 18px;
+      margin-left: 20px;
+    }
+    
+    .stoffwechsel-points li {
+      margin-bottom: 10px;
+      color: #e5e7eb;
+    }
+    
+    @media (max-width: 850px) {
+      .stoffwechsel-video-wrap {
+        grid-template-columns: 1fr;
+      }
+    }
   </style>
 </head>
 
@@ -802,7 +857,6 @@
         <li><button onclick="showView('stoffwechsel-view')">Stoffwechsel</button></li>
         <li><button onclick="showView('home-view')" id="nav-home">Home</button></li>
         <li><button onclick="showView('home-view'); scrollToSection('training')" id="nav-training">Training</button></li>
-        <li><button onclick="showView('vline-view')" id="nav-vline">V-Line</button></li>
         <li><button onclick="showView('home-view'); scrollToSection('future')" id="nav-future">Future</button></li>
       </ul>
     </div>
