@@ -5,7 +5,7 @@ KiveoX Training Forge is a personal training website project.
 All rights reserved.  
 This project and its code may not be copied, modified, redistributed, or used without permission.
 
-0.2.6 - Added BootyWorkout.png added
+0.2.6 - Added BootyWorkout.png
 0.2.5 - Added complete Booty Workout detail page with exercise timer, repetitions, execution notes, and technique hints.
 0.2.4 - Added Booty Workout card to KiveoX Library after Upper Body and Lower Body.
 0.2.3 - Fixed KiveoX Library card order: Upper Body now appears before Lower Body.
