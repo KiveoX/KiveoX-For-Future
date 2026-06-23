@@ -1,0 +1,20 @@
+{
+  "name": "kiveox-for-future",
+  "version": "1.0.0",
+  "description": "KiveoX Training Forge",
+  "scripts": {
+    "dev": "npx serve .",
+    "build": "echo 'Static HTML project - no build needed'",
+    "lint": "echo 'No linter configured for static HTML project'"
+  },
+  "keywords": [
+    "kiveox",
+    "training",
+    "fitness"
+  ],
+  "author": "KiveoX",
+  "license": "ISC",
+  "dependencies": {
+    "@vercel/speed-insights": "^1.0.12"
+  }
+}
