@@ -2315,6 +2315,248 @@
 
 
 
+
+    /* ==================================================
+       CSS SECTION 13 - AUTH / LOGIN MODAL
+       ================================================== */
+
+    .topbar .nav-wrap {
+      max-width: none;
+      width: 100%;
+      justify-content: flex-start;
+    }
+
+    .topbar .navbar {
+      margin-right: auto;
+    }
+
+    .auth-nav {
+      margin-left: auto;
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      gap: 10px;
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+
+    .auth-btn {
+      border: 1px solid rgba(56, 189, 248, 0.45);
+      background: rgba(15, 23, 42, 0.92);
+      color: #38bdf8;
+      padding: 9px 14px;
+      border-radius: 999px;
+      font-weight: 900;
+      cursor: pointer;
+      transition: 0.2s ease;
+    }
+
+    .auth-btn:hover {
+      background: #38bdf8;
+      color: #07111f;
+      transform: translateY(-1px);
+    }
+
+    .auth-btn.primary {
+      background: #facc15;
+      border-color: #facc15;
+      color: #07111f;
+    }
+
+    .auth-btn.primary:hover {
+      filter: brightness(1.08);
+    }
+
+    .auth-user {
+      display: none;
+      align-items: center;
+      gap: 10px;
+      color: #e5e7eb;
+      font-size: 0.9rem;
+      font-weight: bold;
+    }
+
+    .auth-user-email {
+      color: #38bdf8;
+      max-width: 210px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .auth-modal {
+      display: none;
+      position: fixed;
+      inset: 0;
+      z-index: 5000;
+      background: rgba(0, 0, 0, 0.72);
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+
+    .auth-modal.active {
+      display: flex;
+    }
+
+    .auth-box {
+      width: min(430px, 100%);
+      background: rgba(15, 23, 42, 0.98);
+      border: 1px solid rgba(56, 189, 248, 0.45);
+      border-radius: 24px;
+      box-shadow: 0 24px 80px rgba(0, 0, 0, 0.6);
+      padding: 26px;
+      position: relative;
+    }
+
+    .auth-close {
+      position: absolute;
+      top: 14px;
+      right: 14px;
+      width: 34px;
+      height: 34px;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.35);
+      background: rgba(255, 255, 255, 0.04);
+      color: #e5e7eb;
+      cursor: pointer;
+      font-size: 1.2rem;
+    }
+
+    .auth-box h2 {
+      color: #facc15;
+      margin-bottom: 8px;
+      padding-right: 35px;
+    }
+
+    .auth-box p {
+      color: #cbd5e1;
+      margin-bottom: 18px;
+      font-size: 0.95rem;
+    }
+
+    .auth-tabs {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      margin-bottom: 18px;
+    }
+
+    .auth-tab {
+      border: 1px solid rgba(56, 189, 248, 0.35);
+      background: rgba(23, 27, 34, 0.9);
+      color: #38bdf8;
+      border-radius: 999px;
+      padding: 10px;
+      font-weight: 900;
+      cursor: pointer;
+    }
+
+    .auth-tab.active {
+      background: #38bdf8;
+      color: #07111f;
+    }
+
+    .auth-field {
+      margin-bottom: 14px;
+    }
+
+    .auth-field label {
+      display: block;
+      color: #e5e7eb;
+      margin-bottom: 7px;
+      font-weight: bold;
+      font-size: 0.9rem;
+    }
+
+    .auth-field input {
+      width: 100%;
+      padding: 13px 14px;
+      border-radius: 13px;
+      border: 1px solid #263244;
+      background: #0f172a;
+      color: #f4f4f4;
+      outline: none;
+      font-size: 1rem;
+    }
+
+    .auth-field input:focus {
+      border-color: #38bdf8;
+      box-shadow: 0 0 0 3px rgba(56, 189, 248, 0.15);
+    }
+
+    .auth-submit {
+      width: 100%;
+      margin-top: 4px;
+      padding: 14px;
+      border: none;
+      border-radius: 14px;
+      background: #38bdf8;
+      color: #07111f;
+      font-weight: 900;
+      cursor: pointer;
+      font-size: 1rem;
+    }
+
+    .auth-submit:hover {
+      background: #0ea5e9;
+    }
+
+    .auth-link {
+      margin-top: 14px;
+      color: #facc15;
+      background: none;
+      border: none;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    .auth-message {
+      margin-top: 14px;
+      padding: 12px;
+      border-radius: 12px;
+      background: rgba(56, 189, 248, 0.1);
+      border: 1px solid rgba(56, 189, 248, 0.25);
+      color: #dbeafe;
+      display: none;
+      font-size: 0.92rem;
+    }
+
+    .auth-message.error {
+      background: rgba(239, 68, 68, 0.12);
+      border-color: rgba(239, 68, 68, 0.35);
+      color: #fecaca;
+    }
+
+    @media (max-width: 900px) {
+      .auth-nav {
+        margin-left: auto;
+        padding: 0 0 8px;
+        flex-wrap: nowrap;
+        align-self: flex-end;
+      }
+
+      .auth-user {
+        flex-wrap: wrap;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .auth-nav {
+        width: auto;
+        margin-left: auto;
+      }
+
+      .auth-btn {
+        padding: 8px 11px;
+        font-size: 0.82rem;
+      }
+
+      .auth-user-email {
+        max-width: 150px;
+      }
+    }
+
+
   </style>
 </head>
 
@@ -2344,8 +2586,58 @@
         <li><button onclick="showView('vline-view')" id="nav-vline">V-Line</button></li>
         <li><button onclick="showView('home-view'); scrollToSection('future')" id="nav-future">Future</button></li>
       </ul>
+
+      <div class="auth-nav" id="auth-nav">
+        <button class="auth-btn" id="login-open-btn" onclick="openAuthModal('login')">Login</button>
+        <button class="auth-btn primary" id="signup-open-btn" onclick="openAuthModal('signup')">Sign Up</button>
+
+        <div class="auth-user" id="auth-user-box">
+          <span>Eingeloggt:</span>
+          <span class="auth-user-email" id="auth-user-email"></span>
+          <button class="auth-btn" onclick="logoutUser()">Logout</button>
+        </div>
+      </div>
     </div>
   </header>
+
+
+
+
+  <!-- ================================================== -->
+  <!-- AUTH MODAL - LOGIN / SIGN UP                      -->
+  <!-- ================================================== -->
+
+  <div class="auth-modal" id="auth-modal">
+    <div class="auth-box">
+      <button class="auth-close" onclick="closeAuthModal()" aria-label="Close login">×</button>
+
+      <h2 id="auth-title">Login</h2>
+      <p id="auth-subtitle">Melde dich mit deinem KiveoX Account an.</p>
+
+      <div class="auth-tabs">
+        <button class="auth-tab active" id="auth-login-tab" onclick="switchAuthMode('login')">Login</button>
+        <button class="auth-tab" id="auth-signup-tab" onclick="switchAuthMode('signup')">Sign Up</button>
+      </div>
+
+      <form id="auth-form" onsubmit="handleAuthSubmit(event)">
+        <div class="auth-field">
+          <label for="auth-email">E-Mail</label>
+          <input type="email" id="auth-email" autocomplete="email" required>
+        </div>
+
+        <div class="auth-field">
+          <label for="auth-password">Passwort</label>
+          <input type="password" id="auth-password" autocomplete="current-password" minlength="6" required>
+        </div>
+
+        <button class="auth-submit" id="auth-submit-btn" type="submit">Login</button>
+      </form>
+
+      <button class="auth-link" id="forgot-password-btn" onclick="resetPassword()">Passwort vergessen?</button>
+
+      <div class="auth-message" id="auth-message"></div>
+    </div>
+  </div>
 
 
   <!-- ================================================== -->
@@ -2684,6 +2976,8 @@
   <!-- ================================================== -->
 
 
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
   <script>
 
     /* ==================================================
@@ -2694,6 +2988,268 @@
        ================================================== */
 
     let selectedGender = "";
+
+
+    /* ==================================================
+       JS SECTION AUTH - SUPABASE LOGIN / SIGN UP
+       ================================================== */
+
+    // 1) Ersetze diese zwei Werte mit deinen Supabase Daten:
+    // Supabase Dashboard -> Project Settings -> API
+    const KIVEOX_SUPABASE_URL = "PASTE_YOUR_SUPABASE_PROJECT_URL_HERE";
+    const KIVEOX_SUPABASE_ANON_KEY = "PASTE_YOUR_SUPABASE_ANON_PUBLIC_KEY_HERE";
+
+    let authMode = "login";
+    let kiveoxSupabase = null;
+
+    function isSupabaseConfigured() {
+      return (
+        KIVEOX_SUPABASE_URL &&
+        KIVEOX_SUPABASE_ANON_KEY &&
+        !KIVEOX_SUPABASE_URL.includes("PASTE_YOUR") &&
+        !KIVEOX_SUPABASE_ANON_KEY.includes("PASTE_YOUR")
+      );
+    }
+
+    function getSupabaseClient() {
+      if (!isSupabaseConfigured()) {
+        return null;
+      }
+
+      if (!kiveoxSupabase) {
+        kiveoxSupabase = window.supabase.createClient(
+          KIVEOX_SUPABASE_URL,
+          KIVEOX_SUPABASE_ANON_KEY
+        );
+      }
+
+      return kiveoxSupabase;
+    }
+
+    function showAuthMessage(message, isError = false) {
+      const messageBox = document.getElementById("auth-message");
+      if (!messageBox) return;
+
+      messageBox.textContent = message;
+      messageBox.classList.toggle("error", isError);
+      messageBox.style.display = "block";
+    }
+
+    function clearAuthMessage() {
+      const messageBox = document.getElementById("auth-message");
+      if (!messageBox) return;
+
+      messageBox.textContent = "";
+      messageBox.classList.remove("error");
+      messageBox.style.display = "none";
+    }
+
+    function openAuthModal(mode = "login") {
+      const modal = document.getElementById("auth-modal");
+      if (!modal) return;
+
+      switchAuthMode(mode);
+      modal.classList.add("active");
+      setTimeout(() => {
+        const emailInput = document.getElementById("auth-email");
+        if (emailInput) emailInput.focus();
+      }, 60);
+    }
+
+    function closeAuthModal() {
+      const modal = document.getElementById("auth-modal");
+      if (!modal) return;
+
+      modal.classList.remove("active");
+      clearAuthMessage();
+    }
+
+    function switchAuthMode(mode) {
+      authMode = mode;
+
+      const isLogin = mode === "login";
+      const title = document.getElementById("auth-title");
+      const subtitle = document.getElementById("auth-subtitle");
+      const submitBtn = document.getElementById("auth-submit-btn");
+      const loginTab = document.getElementById("auth-login-tab");
+      const signupTab = document.getElementById("auth-signup-tab");
+      const forgotBtn = document.getElementById("forgot-password-btn");
+      const passwordInput = document.getElementById("auth-password");
+
+      if (title) title.textContent = isLogin ? "Login" : "Sign Up";
+      if (subtitle) {
+        subtitle.textContent = isLogin
+          ? "Melde dich mit deinem KiveoX Account an."
+          : "Erstelle deinen KiveoX Account.";
+      }
+      if (submitBtn) submitBtn.textContent = isLogin ? "Login" : "Account erstellen";
+      if (loginTab) loginTab.classList.toggle("active", isLogin);
+      if (signupTab) signupTab.classList.toggle("active", !isLogin);
+      if (forgotBtn) forgotBtn.style.display = isLogin ? "inline-block" : "none";
+      if (passwordInput) passwordInput.autocomplete = isLogin ? "current-password" : "new-password";
+
+      clearAuthMessage();
+    }
+
+    async function handleAuthSubmit(event) {
+      event.preventDefault();
+
+      const client = getSupabaseClient();
+      const email = document.getElementById("auth-email").value.trim();
+      const password = document.getElementById("auth-password").value;
+
+      if (!client) {
+        showAuthMessage(
+          "Supabase ist noch nicht verbunden. Trage Project URL und anon public key im Code ein.",
+          true
+        );
+        return;
+      }
+
+      if (password.length < 6) {
+        showAuthMessage("Das Passwort muss mindestens 6 Zeichen haben.", true);
+        return;
+      }
+
+      const submitBtn = document.getElementById("auth-submit-btn");
+      if (submitBtn) submitBtn.disabled = true;
+
+      try {
+        let result;
+
+        if (authMode === "signup") {
+          result = await client.auth.signUp({
+            email: email,
+            password: password
+          });
+        } else {
+          result = await client.auth.signInWithPassword({
+            email: email,
+            password: password
+          });
+        }
+
+        if (result.error) {
+          showAuthMessage(result.error.message, true);
+          return;
+        }
+
+        if (authMode === "signup") {
+          showAuthMessage("Account erstellt. Du kannst dich jetzt einloggen.");
+          switchAuthMode("login");
+        } else {
+          showAuthMessage("Login erfolgreich.");
+          await updateAuthUI();
+          setTimeout(closeAuthModal, 650);
+        }
+      } catch (error) {
+        showAuthMessage("Fehler: " + error.message, true);
+      } finally {
+        if (submitBtn) submitBtn.disabled = false;
+      }
+    }
+
+    async function resetPassword() {
+      const client = getSupabaseClient();
+      const emailInput = document.getElementById("auth-email");
+      const email = emailInput ? emailInput.value.trim() : "";
+
+      if (!client) {
+        showAuthMessage(
+          "Supabase ist noch nicht verbunden. Trage Project URL und anon public key im Code ein.",
+          true
+        );
+        return;
+      }
+
+      if (!email) {
+        showAuthMessage("Bitte zuerst deine E-Mail eingeben.", true);
+        return;
+      }
+
+      const redirectTo = window.location.origin + window.location.pathname;
+
+      const { error } = await client.auth.resetPasswordForEmail(email, {
+        redirectTo: redirectTo
+      });
+
+      if (error) {
+        showAuthMessage(error.message, true);
+        return;
+      }
+
+      showAuthMessage("Recovery-Link wurde gesendet. Prüfe deine E-Mails.");
+    }
+
+    async function logoutUser() {
+      const client = getSupabaseClient();
+
+      if (!client) {
+        updateAuthUI(null);
+        return;
+      }
+
+      await client.auth.signOut();
+      await updateAuthUI();
+    }
+
+    async function updateAuthUI(forcedSession = undefined) {
+      const loginBtn = document.getElementById("login-open-btn");
+      const signupBtn = document.getElementById("signup-open-btn");
+      const userBox = document.getElementById("auth-user-box");
+      const userEmail = document.getElementById("auth-user-email");
+
+      let session = forcedSession;
+
+      const client = getSupabaseClient();
+      if (session === undefined && client) {
+        const { data } = await client.auth.getSession();
+        session = data.session;
+      }
+
+      const email = session && session.user ? session.user.email : "";
+
+      if (email) {
+        if (loginBtn) loginBtn.style.display = "none";
+        if (signupBtn) signupBtn.style.display = "none";
+        if (userBox) userBox.style.display = "flex";
+        if (userEmail) userEmail.textContent = email;
+      } else {
+        if (loginBtn) loginBtn.style.display = "inline-block";
+        if (signupBtn) signupBtn.style.display = "inline-block";
+        if (userBox) userBox.style.display = "none";
+        if (userEmail) userEmail.textContent = "";
+      }
+    }
+
+    function initKiveoXAuth() {
+      const modal = document.getElementById("auth-modal");
+
+      if (modal) {
+        modal.addEventListener("click", function(event) {
+          if (event.target === modal) {
+            closeAuthModal();
+          }
+        });
+      }
+
+      document.addEventListener("keydown", function(event) {
+        if (event.key === "Escape") {
+          closeAuthModal();
+        }
+      });
+
+      const client = getSupabaseClient();
+      if (client) {
+        client.auth.onAuthStateChange(function(_event, session) {
+          updateAuthUI(session);
+        });
+      }
+
+      updateAuthUI();
+    }
+
+
 
 
 
@@ -6407,6 +6963,7 @@
       document.getElementById("calorieResultBox").style.display = "block";
     }
 
+    initKiveoXAuth();
     setLanguage(localStorage.getItem("language") || "de");
   </script>
 
