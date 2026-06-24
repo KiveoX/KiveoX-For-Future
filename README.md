@@ -5,6 +5,21 @@ KiveoX Training Forge is a personal training website project.
 All rights reserved.  
 This project and its code may not be copied, modified, redistributed, or used without permission.
 
+0.4.2 - Added public-safe auth error messages so normal users no longer see technical Supabase setup details.
+0.4.1 - Added username display in the top navigation instead of showing the user email, with fallback support.
+0.4.0 - Added username support for Sign Up and connected username data to Supabase profiles.
+0.3.9 - Added automatic profile creation foundation for new registered users.
+0.3.8 - Added Supabase database foundation with profiles, progress_entries, saved_workouts, and Row Level Security policies.
+0.3.7 - Fixed Supabase Email Provider setup and confirmed authentication works on Vercel.
+0.3.6 - Fixed Supabase Project URL connection issue that caused failed signup requests.
+0.3.5 - Added password recovery support through Supabase reset password flow.
+0.3.4 - Added Logout button and logged-in topbar user state.
+0.3.3 - Added persistent login session detection and auth state listener.
+0.3.2 - Added Sign Up flow with password validation and user-safe feedback messages.
+0.3.1 - Connected Supabase JavaScript client to the KiveoX frontend.
+0.3.0 - Added full Supabase authentication system with Login, Sign Up, session handling, and account foundation.
+0.2.9 - Added Login / Sign Up modal with tabs, close button, overlay behavior, and responsive styling.
+0.2.8 - Added right-aligned topbar auth button group for Login, Sign Up, logged-in status, and Logout.
 0.2.7 - Fixed full multi-language system, added language dropdown, added TR/AZ/FR/UK ( 7 languages total )
 0.2.6 - Added BootyWorkout.png for the Booty Workout card
 0.2.5 - Added complete Booty Workout detail page with exercise timer, repetitions, execution notes, and technique hints.
