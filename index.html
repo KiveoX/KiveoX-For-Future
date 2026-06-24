@@ -2625,6 +2625,11 @@
           <input type="email" id="auth-email" autocomplete="email" required>
         </div>
 
+        <div class="auth-field" id="auth-username-field" style="display: none;">
+          <label for="auth-username">Username</label>
+          <input type="text" id="auth-username" autocomplete="username" minlength="3" maxlength="24" placeholder="z. B. KiveoXUser">
+        </div>
+
         <div class="auth-field">
           <label for="auth-password">Passwort</label>
           <input type="password" id="auth-password" autocomplete="current-password" minlength="6" required>
@@ -3079,6 +3084,8 @@
       const signupTab = document.getElementById("auth-signup-tab");
       const forgotBtn = document.getElementById("forgot-password-btn");
       const passwordInput = document.getElementById("auth-password");
+      const usernameField = document.getElementById("auth-username-field");
+      const usernameInput = document.getElementById("auth-username");
 
       if (title) title.textContent = isLogin ? "Login" : "Sign Up";
       if (subtitle) {
@@ -3091,8 +3098,76 @@
       if (signupTab) signupTab.classList.toggle("active", !isLogin);
       if (forgotBtn) forgotBtn.style.display = isLogin ? "inline-block" : "none";
       if (passwordInput) passwordInput.autocomplete = isLogin ? "current-password" : "new-password";
+      if (usernameField) usernameField.style.display = isLogin ? "none" : "block";
+      if (usernameInput) usernameInput.required = !isLogin;
 
       clearAuthMessage();
+    }
+
+    function normalizeKiveoXUsername(value) {
+      return (value || "")
+        .trim()
+        .replace(/\s+/g, "_")
+        .replace(/[^a-zA-Z0-9_\-.]/g, "")
+        .slice(0, 24);
+    }
+
+    function fallbackDisplayName(user) {
+      if (!user) return "";
+      const metaUsername = user.user_metadata && user.user_metadata.username;
+      if (metaUsername) return metaUsername;
+      return user.email ? user.email.split("@")[0] : "KiveoX User";
+    }
+
+    async function getKiveoXDisplayName(user) {
+      if (!user) return "";
+
+      const client = getSupabaseClient();
+      if (!client) return fallbackDisplayName(user);
+
+      try {
+        const { data, error } = await client
+          .from("profiles")
+          .select("username, display_name")
+          .eq("id", user.id)
+          .maybeSingle();
+
+        if (error) {
+          console.warn("Profil konnte nicht geladen werden:", error);
+          return fallbackDisplayName(user);
+        }
+
+        return (data && (data.display_name || data.username)) || fallbackDisplayName(user);
+      } catch (error) {
+        console.warn("Profil konnte nicht geladen werden:", error);
+        return fallbackDisplayName(user);
+      }
+    }
+
+    async function saveKiveoXUsername(user, username) {
+      if (!user || !username) return;
+
+      const client = getSupabaseClient();
+      if (!client) return;
+
+      try {
+        const payload = {
+          id: user.id,
+          username: username,
+          display_name: username,
+          updated_at: new Date().toISOString()
+        };
+
+        const { error } = await client
+          .from("profiles")
+          .upsert(payload, { onConflict: "id" });
+
+        if (error) {
+          console.warn("Username konnte nicht gespeichert werden:", error);
+        }
+      } catch (error) {
+        console.warn("Username konnte nicht gespeichert werden:", error);
+      }
     }
 
     async function handleAuthSubmit(event) {
@@ -3101,6 +3176,8 @@
       const client = getSupabaseClient();
       const email = document.getElementById("auth-email").value.trim();
       const password = document.getElementById("auth-password").value;
+      const usernameInput = document.getElementById("auth-username");
+      const username = normalizeKiveoXUsername(usernameInput ? usernameInput.value : "");
 
       if (!client) {
         showAuthMessage(
@@ -3115,6 +3192,11 @@
         return;
       }
 
+      if (authMode === "signup" && username.length < 3) {
+        showAuthMessage("Der Username muss mindestens 3 Zeichen haben.", true);
+        return;
+      }
+
       const submitBtn = document.getElementById("auth-submit-btn");
       if (submitBtn) submitBtn.disabled = true;
 
@@ -3124,7 +3206,13 @@
         if (authMode === "signup") {
           result = await client.auth.signUp({
             email: email,
-            password: password
+            password: password,
+            options: {
+              data: {
+                username: username,
+                display_name: username
+              }
+            }
           });
         } else {
           result = await client.auth.signInWithPassword({
@@ -3140,7 +3228,12 @@
         }
 
         if (authMode === "signup") {
+          if (result.data && result.data.user) {
+            await saveKiveoXUsername(result.data.user, username);
+          }
+
           showAuthMessage("Account erstellt. Du kannst dich jetzt einloggen.");
+          await updateAuthUI();
           switchAuthMode("login");
         } else {
           showAuthMessage("Login erfolgreich.");
@@ -3214,13 +3307,17 @@
         session = data.session;
       }
 
-      const email = session && session.user ? session.user.email : "";
+      const user = session && session.user ? session.user : null;
+      const displayName = user ? await getKiveoXDisplayName(user) : "";
 
-      if (email) {
+      if (user) {
         if (loginBtn) loginBtn.style.display = "none";
         if (signupBtn) signupBtn.style.display = "none";
         if (userBox) userBox.style.display = "flex";
-        if (userEmail) userEmail.textContent = email;
+        if (userEmail) {
+          userEmail.textContent = displayName;
+          userEmail.title = user.email || displayName;
+        }
       } else {
         if (loginBtn) loginBtn.style.display = "inline-block";
         if (signupBtn) signupBtn.style.display = "inline-block";
