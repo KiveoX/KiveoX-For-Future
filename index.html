@@ -3016,6 +3016,10 @@
         return null;
       }
 
+      if (!window.supabase || !window.supabase.createClient) {
+        throw new Error("Supabase Library wurde nicht geladen. Pruefe deine Internetverbindung oder den CDN-Link.");
+      }
+
       if (!kiveoxSupabase) {
         kiveoxSupabase = window.supabase.createClient(
           KIVEOX_SUPABASE_URL,
@@ -3100,7 +3104,7 @@
 
       if (!client) {
         showAuthMessage(
-          "Supabase ist noch nicht verbunden. Trage Project URL und anon public key im Code ein.",
+          "Login ist gerade nicht verfügbar. Bitte versuche es später nochmal.",
           true
         );
         return;
@@ -3130,7 +3134,8 @@
         }
 
         if (result.error) {
-          showAuthMessage(result.error.message, true);
+          console.error(result.error);
+          showAuthMessage("E-Mail oder Passwort ist nicht korrekt, oder der Account existiert bereits.", true);
           return;
         }
 
@@ -3143,7 +3148,8 @@
           setTimeout(closeAuthModal, 650);
         }
       } catch (error) {
-        showAuthMessage("Fehler: " + error.message, true);
+        console.error(error);
+        showAuthMessage("Es ist ein Fehler aufgetreten. Bitte versuche es später nochmal.", true);
       } finally {
         if (submitBtn) submitBtn.disabled = false;
       }
@@ -3156,7 +3162,7 @@
 
       if (!client) {
         showAuthMessage(
-          "Supabase ist noch nicht verbunden. Trage Project URL und anon public key im Code ein.",
+          "Login ist gerade nicht verfügbar. Bitte versuche es später nochmal.",
           true
         );
         return;
@@ -3174,7 +3180,8 @@
       });
 
       if (error) {
-        showAuthMessage(error.message, true);
+        console.error(error);
+        showAuthMessage("Recovery konnte gerade nicht gestartet werden. Bitte später erneut versuchen.", true);
         return;
       }
 
