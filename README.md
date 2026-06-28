@@ -5,7 +5,7 @@ KiveoX Training Forge is a personal training website project.
 All rights reserved.  
 This project and its code may not be copied, modified, redistributed, or used without permission.
 
-0.4.2 - Added public-safe auth error messages so normal users no longer see technical Supabase setup details.
+0.4.2 - Added public-safe auth error messages so normal users no longer see technical Support.
 0.4.1 - Added username display in the top navigation instead of showing the user email, with fallback support.
 0.4.0 - Added username support for Sign Up and connected username data to Supabase profiles.
 0.3.9 - Added automatic profile creation foundation for new registered users.
