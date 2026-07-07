@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="KiveoX Training Forge - Core / V-Line.">
+  <title>Core / V-Line | KiveoX</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header class="topbar">
+  <div class="nav-wrap">
+    <a class="brand" href="index.html">KiveoX</a>
+    <ul class="navbar">
+      <li><a href="index.html" data-i18n="home">Home</a></li>
+      <li><a href="index.html#training" data-i18n="library">Training</a></li>
+      <li><a href="vline.html">Core / V-Line</a></li>
+      <li><a href="strength.html">Forge Strength</a></li>
+      <li><a href="back.html">Back</a></li>
+      <li><a href="upper.html">Upper</a></li>
+      <li><a href="lower.html">Lower</a></li>
+      <li><a href="booty.html">Booty</a></li>
+      <li><a href="plans.html" data-i18n="plans">Pläne</a></li>
+      <li><a href="meals.html" data-i18n="meals">Meal Prep</a></li>
+      <li><a href="progress.html" data-i18n="progress">Progress</a></li>
+    </ul>
+    <div class="auth-nav">
+      <button class="auth-btn" id="login-open-btn" onclick="openAuthModal('login')">Login</button>
+      <button class="auth-btn primary" id="signup-open-btn" onclick="openAuthModal('signup')">Sign Up</button>
+      <div class="auth-user" id="auth-user-box"><span>Eingeloggt:</span><span class="auth-user-name" id="auth-user-name"></span><button class="auth-btn" onclick="logoutUser()">Logout</button></div>
+      <select id="language-select" class="language-select" onchange="setLanguage(this.value)" aria-label="Choose language"><option value="de">Deutsch - DE</option><option value="en">English - EN</option><option value="ru">Русский - RU</option><option value="tr">Türkçe - TR</option><option value="az">Azərbaycanca - AZ</option><option value="fr">Français - FR</option><option value="uk">Українська - UA</option></select>
+    </div>
+  </div>
+</header>
+<div class="auth-modal" id="auth-modal"><div class="auth-box"><button class="auth-close" onclick="closeAuthModal()" aria-label="Close login">×</button><h2 id="auth-title">Login</h2><p id="auth-subtitle">Melde dich mit deinem KiveoX Account an.</p><div class="auth-tabs"><button class="auth-tab active" id="auth-login-tab" onclick="switchAuthMode('login')">Login</button><button class="auth-tab" id="auth-signup-tab" onclick="switchAuthMode('signup')">Sign Up</button></div><form id="auth-form" onsubmit="handleAuthSubmit(event)"><div class="auth-field"><label for="auth-email">E-Mail</label><input type="email" id="auth-email" autocomplete="email" required></div><div class="auth-field" id="auth-username-field" style="display:none"><label for="auth-username">Username</label><input type="text" id="auth-username" autocomplete="username" minlength="3" maxlength="24" placeholder="z. B. KiveoXUser"></div><div class="auth-field"><label for="auth-password">Passwort</label><input type="password" id="auth-password" autocomplete="current-password" minlength="6" required></div><button class="auth-submit" id="auth-submit-btn" type="submit">Login</button></form><button class="auth-link" id="forgot-password-btn" onclick="resetPassword()">Passwort vergessen?</button><div class="auth-message" id="auth-message"></div></div></div>
+
+<main class="container">
+
+<a class="back-btn" href="index.html">← Back to Home</a><div class="detail-hero"><h1>Core / V-Line Plan</h1><p>Separate page for lower abs, obliques, deep core control and visible V-Line foundation.</p></div>
+<section class="card"><h2>Most Important Point</h2><p>The V-Line is not built by ab exercises alone. It becomes visible through <span class="highlight">lower body fat, strong lower abs, trained obliques, posture and consistency</span>.</p><div class="warning"><strong>Rule:</strong> Train the foundation now, but measure waist trend and nutrition too.</div></section>
+<section class="card"><h2>Level System</h2><div class="plan-grid"><div class="day"><h3>Beginner</h3><ul><li>Dead Bug - 3x10 per side</li><li>Reverse Crunch - 3x8-12</li><li>Plank - 3x20-30 sec</li><li>Side Plank - 2x15-25 sec</li></ul></div><div class="day"><h3>Intermediate</h3><ul><li>Kneeling Ab Rollout - 3x6-10</li><li>Hanging Knee Raise - 3x8-12</li><li>Russian Twist - 3x10 per side</li><li>Pallof Press - 3x10-12 per side</li></ul></div><div class="day"><h3>Advanced</h3><ul><li>Ab Rollout - 4x10</li><li>Hanging Leg Raise - 4x8-12</li><li>Cable Crunch - 4x10-15</li><li>Side Plank Hip Dip - 3x10-15 per side</li></ul></div></div></section>
+<section class="card"><h2>2-3x Weekly Plan</h2><div class="plan-grid"><div class="day"><h3>Day A</h3><ul><li>Ab Rollouts - 4x10</li><li>Hanging Knee Raises - 4x8-12</li><li>Russian Twists - 4x10 per side</li><li>Side Plank - 3x30-45 sec</li></ul></div><div class="day"><h3>Day B</h3><ul><li>Cable Crunches - 4x10-15</li><li>Reverse Crunches - 4x10-15</li><li>Ab Rollouts - 3x8-10</li><li>Pallof Press - 3x12 per side</li></ul></div></div><div class="warning">Leave at least one rest day between hard core sessions.</div></section>
+<section class="card"><h2>Technique Rules</h2><ul><li>No momentum.</li><li>Brace before every rep.</li><li>Do not let the lower back collapse during rollouts.</li><li>Stop or regress if lower back pain appears.</li><li>Control first, reps second, load third.</li></ul></section>
+
+<footer class="footer"><p>© 2026 KiveoX Training Forge. Forge your future. All rights reserved.</p></footer>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="app.js"></script>
+
+</main>
+</body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="KiveoX Training Forge - Progress Tracker.">
+  <title>Progress Tracker | KiveoX</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header class="topbar">
+  <div class="nav-wrap">
+    <a class="brand" href="index.html">KiveoX</a>
+    <ul class="navbar">
+      <li><a href="index.html" data-i18n="home">Home</a></li>
+      <li><a href="index.html#training" data-i18n="library">Training</a></li>
+      <li><a href="vline.html">Core / V-Line</a></li>
+      <li><a href="strength.html">Forge Strength</a></li>
+      <li><a href="back.html">Back</a></li>
+      <li><a href="upper.html">Upper</a></li>
+      <li><a href="lower.html">Lower</a></li>
+      <li><a href="booty.html">Booty</a></li>
+      <li><a href="plans.html" data-i18n="plans">Pläne</a></li>
+      <li><a href="meals.html" data-i18n="meals">Meal Prep</a></li>
+      <li><a href="progress.html" data-i18n="progress">Progress</a></li>
+    </ul>
+    <div class="auth-nav">
+      <button class="auth-btn" id="login-open-btn" onclick="openAuthModal('login')">Login</button>
+      <button class="auth-btn primary" id="signup-open-btn" onclick="openAuthModal('signup')">Sign Up</button>
+      <div class="auth-user" id="auth-user-box"><span>Eingeloggt:</span><span class="auth-user-name" id="auth-user-name"></span><button class="auth-btn" onclick="logoutUser()">Logout</button></div>
+      <select id="language-select" class="language-select" onchange="setLanguage(this.value)" aria-label="Choose language"><option value="de">Deutsch - DE</option><option value="en">English - EN</option><option value="ru">Русский - RU</option><option value="tr">Türkçe - TR</option><option value="az">Azərbaycanca - AZ</option><option value="fr">Français - FR</option><option value="uk">Українська - UA</option></select>
+    </div>
+  </div>
+</header>
+<div class="auth-modal" id="auth-modal"><div class="auth-box"><button class="auth-close" onclick="closeAuthModal()" aria-label="Close login">×</button><h2 id="auth-title">Login</h2><p id="auth-subtitle">Melde dich mit deinem KiveoX Account an.</p><div class="auth-tabs"><button class="auth-tab active" id="auth-login-tab" onclick="switchAuthMode('login')">Login</button><button class="auth-tab" id="auth-signup-tab" onclick="switchAuthMode('signup')">Sign Up</button></div><form id="auth-form" onsubmit="handleAuthSubmit(event)"><div class="auth-field"><label for="auth-email">E-Mail</label><input type="email" id="auth-email" autocomplete="email" required></div><div class="auth-field" id="auth-username-field" style="display:none"><label for="auth-username">Username</label><input type="text" id="auth-username" autocomplete="username" minlength="3" maxlength="24" placeholder="z. B. KiveoXUser"></div><div class="auth-field"><label for="auth-password">Passwort</label><input type="password" id="auth-password" autocomplete="current-password" minlength="6" required></div><button class="auth-submit" id="auth-submit-btn" type="submit">Login</button></form><button class="auth-link" id="forgot-password-btn" onclick="resetPassword()">Passwort vergessen?</button><div class="auth-message" id="auth-message"></div></div></div>
+
+<main class="container">
+
+<a class="back-btn" href="index.html">← Back to Home</a><div class="detail-hero"><h1>Progress Tracker</h1><p>Save simple weekly check-ins locally. This helps the KiveoX project grow without needing database changes first.</p></div>
+<section class="card"><h2>Add Entry</h2><div class="input-grid"><div class="input-box"><label for="progress-weight">Weight / Gewicht (kg)</label><input id="progress-weight" type="number" placeholder="75"></div><div class="input-box"><label for="progress-waist">Waist / Bauchumfang (cm)</label><input id="progress-waist" type="number" placeholder="84"></div></div><div class="input-box"><label for="progress-note">Note</label><textarea id="progress-note" placeholder="Energy, sleep, training performance, mood..."></textarea></div><button class="pill-btn primary" onclick="saveProgress()">Save Progress</button></section>
+<section class="card"><h2>Saved Entries</h2><div id="progress-list"></div></section>
+
+<footer class="footer"><p>© 2026 KiveoX Training Forge. Forge your future. All rights reserved.</p></footer>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="app.js"></script>
+
+</main>
+</body>
+</html>

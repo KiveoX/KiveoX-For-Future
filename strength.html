@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="KiveoX Training Forge - Forge Strength.">
+  <title>Forge Strength | KiveoX</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header class="topbar">
+  <div class="nav-wrap">
+    <a class="brand" href="index.html">KiveoX</a>
+    <ul class="navbar">
+      <li><a href="index.html" data-i18n="home">Home</a></li>
+      <li><a href="index.html#training" data-i18n="library">Training</a></li>
+      <li><a href="vline.html">Core / V-Line</a></li>
+      <li><a href="strength.html">Forge Strength</a></li>
+      <li><a href="back.html">Back</a></li>
+      <li><a href="upper.html">Upper</a></li>
+      <li><a href="lower.html">Lower</a></li>
+      <li><a href="booty.html">Booty</a></li>
+      <li><a href="plans.html" data-i18n="plans">Pläne</a></li>
+      <li><a href="meals.html" data-i18n="meals">Meal Prep</a></li>
+      <li><a href="progress.html" data-i18n="progress">Progress</a></li>
+    </ul>
+    <div class="auth-nav">
+      <button class="auth-btn" id="login-open-btn" onclick="openAuthModal('login')">Login</button>
+      <button class="auth-btn primary" id="signup-open-btn" onclick="openAuthModal('signup')">Sign Up</button>
+      <div class="auth-user" id="auth-user-box"><span>Eingeloggt:</span><span class="auth-user-name" id="auth-user-name"></span><button class="auth-btn" onclick="logoutUser()">Logout</button></div>
+      <select id="language-select" class="language-select" onchange="setLanguage(this.value)" aria-label="Choose language"><option value="de">Deutsch - DE</option><option value="en">English - EN</option><option value="ru">Русский - RU</option><option value="tr">Türkçe - TR</option><option value="az">Azərbaycanca - AZ</option><option value="fr">Français - FR</option><option value="uk">Українська - UA</option></select>
+    </div>
+  </div>
+</header>
+<div class="auth-modal" id="auth-modal"><div class="auth-box"><button class="auth-close" onclick="closeAuthModal()" aria-label="Close login">×</button><h2 id="auth-title">Login</h2><p id="auth-subtitle">Melde dich mit deinem KiveoX Account an.</p><div class="auth-tabs"><button class="auth-tab active" id="auth-login-tab" onclick="switchAuthMode('login')">Login</button><button class="auth-tab" id="auth-signup-tab" onclick="switchAuthMode('signup')">Sign Up</button></div><form id="auth-form" onsubmit="handleAuthSubmit(event)"><div class="auth-field"><label for="auth-email">E-Mail</label><input type="email" id="auth-email" autocomplete="email" required></div><div class="auth-field" id="auth-username-field" style="display:none"><label for="auth-username">Username</label><input type="text" id="auth-username" autocomplete="username" minlength="3" maxlength="24" placeholder="z. B. KiveoXUser"></div><div class="auth-field"><label for="auth-password">Passwort</label><input type="password" id="auth-password" autocomplete="current-password" minlength="6" required></div><button class="auth-submit" id="auth-submit-btn" type="submit">Login</button></form><button class="auth-link" id="forgot-password-btn" onclick="resetPassword()">Passwort vergessen?</button><div class="auth-message" id="auth-message"></div></div></div>
+
+<main class="container">
+
+<a class="back-btn" href="index.html">← Back to Home</a><div class="detail-hero"><h1>Forge Strength</h1><p>Separate strength page for lifting principles, calculators and weekly force-building structure.</p></div>
+<section class="grid"><div class="card"><h2>Lift Heavy</h2><p>Use 1-5 reps for raw strength and 3-6 reps for controlled heavy technique.</p><span class="tag">Force</span></div><div class="card"><h2>Rest Longer</h2><p>Rest 3-5 minutes between heavy sets to recover performance.</p><span class="tag">Recovery</span></div><div class="card"><h2>Create Tension</h2><p>Grip hard, brace the core, squeeze glutes and move as one solid unit.</p><span class="tag">Technique</span></div><div class="card"><h2>Protein + Calories</h2><p>Keep protein high. Use maintenance for lean strength, deficit for fat loss, small surplus for muscle.</p><span class="tag">Nutrition</span></div></section>
+<section class="card"><h2>Simple Weekly Strength Plan</h2><div class="plan-grid"><div class="day"><h3>Day 1</h3><ul><li>Squat - 5x3</li><li>Bench Press - 5x3</li><li>Row - 4x6</li><li>Core Brace - 3 sets</li></ul></div><div class="day"><h3>Day 2</h3><ul><li>Deadlift - 5x2</li><li>Overhead Press - 5x3</li><li>Pull-Up / Pulldown - 4x6</li><li>Farmer Carry - 4 rounds</li></ul></div><div class="day"><h3>Day 3</h3><ul><li>Front Squat - 4x5</li><li>Incline Press - 4x5</li><li>Romanian Deadlift - 4x6</li><li>Pallof Press - 3x12</li></ul></div></div></section>
+<section class="card"><h2>Body Calculator</h2><p class="muted">Enter your body data here, then calculate BMI and estimated calories.</p><div class="input-grid"><div class="input-box"><label for="weight">Weight / Waage (kg)</label><input id="weight" type="number" placeholder="75"></div><div class="input-box"><label for="height">Height / Größe (cm)</label><input id="height" type="number" placeholder="180"></div><div class="input-box"><label for="age">Age / Alter</label><input id="age" type="number" placeholder="25"></div></div><button class="pill-btn primary" onclick="calculateBMI()">Calculate BMI</button><div class="result-box" id="bmiResultBox"><h3 id="bmiResultTitle">Your Result</h3><div class="result-number" id="bmiNumber">0.0</div><p id="bmiCategory"></p><p id="bmiExtraInfo"></p><p id="bmiTip"></p></div></section>
+<section class="card"><h2>Calorie Burn Calculator</h2><div class="input-grid"><div class="input-box"><label for="activity">Activity Level</label><select id="activity"><option value="1.2">Low activity</option><option value="1.375">Light activity</option><option value="1.55">Moderate activity</option><option value="1.725">High activity</option><option value="1.9">Very high activity</option></select></div><div class="input-box"><label for="goal">Goal</label><select id="goal"><option value="maintain">Maintain</option><option value="lose">Lose fat</option><option value="gain">Gain muscle</option></select></div></div><button class="pill-btn primary" onclick="calculateCalories()">Calculate Daily Calories</button><div class="result-box" id="calorieResultBox"><h3>Estimated Daily Calories</h3><div class="result-number" id="calorieNumber">0 kcal</div><p id="calorieInfo"></p><p id="goalInfo"></p></div></section>
+
+<footer class="footer"><p>© 2026 KiveoX Training Forge. Forge your future. All rights reserved.</p></footer>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="app.js"></script>
+
+</main>
+</body>
+</html>
