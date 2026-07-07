@@ -27,6 +27,22 @@
   margin-bottom: 10px;
 }
 
+.recipe ul {
+  margin-left: 20px;
+  margin-top: 10px;
+  margin-bottom: 14px;
+}
+
+.recipe li {
+  margin-bottom: 7px;
+  color: #e5e7eb;
+}
+
+.recipe .tag {
+  width: fit-content;
+  margin-top: auto;
+}
+
 .kcal {
   display: inline-block;
   width: fit-content;
