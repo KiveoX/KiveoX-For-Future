@@ -7,57 +7,136 @@
   <title>Meal Prep | KiveoX</title>
   <link rel="stylesheet" href="styles.css">
 </head>
+
 <body>
 <header class="topbar">
   <div class="nav-wrap">
     <a class="brand" href="index.html">KiveoX</a>
+
     <ul class="navbar">
       <li><a href="index.html" data-i18n="home">Home</a></li>
       <li><a href="index.html#training" data-i18n="library">Training</a></li>
     </ul>
+
     <div class="auth-nav">
       <button class="auth-btn" id="login-open-btn" onclick="openAuthModal('login')">Login</button>
       <button class="auth-btn primary" id="signup-open-btn" onclick="openAuthModal('signup')">Sign Up</button>
-      <div class="auth-user" id="auth-user-box"><span>Eingeloggt:</span><span class="auth-user-name" id="auth-user-name"></span><button class="auth-btn" onclick="logoutUser()">Logout</button></div>
-      <select id="language-select" class="language-select" onchange="setLanguage(this.value)" aria-label="Choose language"><option value="de">Deutsch - DE</option><option value="en">English - EN</option><option value="ru">Русский - RU</option><option value="tr">Türkçe - TR</option><option value="az">Azərbaycanca - AZ</option><option value="fr">Français - FR</option><option value="uk">Українська - UA</option></select>
+
+      <div class="auth-user" id="auth-user-box">
+        <span>Eingeloggt:</span>
+        <span class="auth-user-name" id="auth-user-name"></span>
+        <button class="auth-btn" onclick="logoutUser()">Logout</button>
+      </div>
+
+      <select id="language-select" class="language-select" onchange="setLanguage(this.value)" aria-label="Choose language">
+        <option value="de">Deutsch - DE</option>
+        <option value="en">English - EN</option>
+        <option value="ru">Русский - RU</option>
+        <option value="tr">Türkçe - TR</option>
+        <option value="az">Azərbaycanca - AZ</option>
+        <option value="fr">Français - FR</option>
+        <option value="uk">Українська - UA</option>
+      </select>
     </div>
   </div>
 </header>
-<div class="auth-modal" id="auth-modal"><div class="auth-box"><button class="auth-close" onclick="closeAuthModal()" aria-label="Close login">×</button><h2 id="auth-title">Login</h2><p id="auth-subtitle">Melde dich mit deinem KiveoX Account an.</p><div class="auth-tabs"><button class="auth-tab active" id="auth-login-tab" onclick="switchAuthMode('login')">Login</button><button class="auth-tab" id="auth-signup-tab" onclick="switchAuthMode('signup')">Sign Up</button></div><form id="auth-form" onsubmit="handleAuthSubmit(event)"><div class="auth-field"><label for="auth-email">E-Mail</label><input type="email" id="auth-email" autocomplete="email" required></div><div class="auth-field" id="auth-username-field" style="display:none"><label for="auth-username">Username</label><input type="text" id="auth-username" autocomplete="username" minlength="3" maxlength="24" placeholder="z. B. KiveoXUser"></div><div class="auth-field"><label for="auth-password">Passwort</label><input type="password" id="auth-password" autocomplete="current-password" minlength="6" required></div><button class="auth-submit" id="auth-submit-btn" type="submit">Login</button></form><button class="auth-link" id="forgot-password-btn" onclick="resetPassword()">Passwort vergessen?</button><div class="auth-message" id="auth-message"></div></div></div>
+
+<div class="auth-modal" id="auth-modal">
+  <div class="auth-box">
+    <button class="auth-close" onclick="closeAuthModal()" aria-label="Close login">×</button>
+    <h2 id="auth-title">Login</h2>
+    <p id="auth-subtitle">Melde dich mit deinem KiveoX Account an.</p>
+
+    <div class="auth-tabs">
+      <button class="auth-tab active" id="auth-login-tab" onclick="switchAuthMode('login')">Login</button>
+      <button class="auth-tab" id="auth-signup-tab" onclick="switchAuthMode('signup')">Sign Up</button>
+    </div>
+
+    <form id="auth-form" onsubmit="handleAuthSubmit(event)">
+      <div class="auth-field">
+        <label for="auth-email">E-Mail</label>
+        <input type="email" id="auth-email" autocomplete="email" required>
+      </div>
+
+      <div class="auth-field" id="auth-username-field" style="display:none">
+        <label for="auth-username">Username</label>
+        <input type="text" id="auth-username" autocomplete="username" minlength="3" maxlength="24" placeholder="z. B. KiveoXUser">
+      </div>
+
+      <div class="auth-field">
+        <label for="auth-password">Passwort</label>
+        <input type="password" id="auth-password" autocomplete="current-password" minlength="6" required>
+      </div>
+
+      <button class="auth-submit" id="auth-submit-btn" type="submit">Login</button>
+    </form>
+
+    <button class="auth-link" id="forgot-password-btn" onclick="resetPassword()">Passwort vergessen?</button>
+    <div class="auth-message" id="auth-message"></div>
+  </div>
+</div>
 
 <main class="container">
 
-<a class="back-btn" href="index.html">← Back to Home</a><div class="detail-hero"><h1>Meal Prep</h1><p>Simple food structure for strength, fat loss and consistency. Keep it easy enough to repeat.</p></div>
-<section class="card"><h2>Meal Prep Rules</h2><div class="exercise-meta"><span>Protein each meal</span><span>Carbs around training</span><span>Veg daily</span><span>Water</span><span>80/20 consistency</span></div><p>Prep meals that are simple, repeatable and close to your goal calories. This section is intentionally separate so it can grow later.</p></section>
-<section class="meal-grid">
-  <div class="recipe"><h3>Chicken Rice Bowl</h3><ul><li>Chicken breast or turkey</li><li>Rice or potatoes</li><li>Broccoli / salad</li><li>Yogurt sauce or light dressing</li></ul><span class="tag">Lean Strength</span><span class="kcal">ca. 550 kcal</span></div>
-  <div class="recipe"><h3>High-Protein Breakfast</h3><ul><li>Greek yogurt / Skyr</li><li>Oats</li><li>Berries</li><li>Protein powder optional</li></ul><span class="tag">Fast Prep</span><span class="kcal">ca. 450 kcal</span></div>
-  <div class="recipe"><h3>Egg + Potato Box</h3><ul><li>Eggs or egg whites</li><li>Potatoes</li><li>Spinach</li><li>Avocado optional</li></ul><span class="tag">Balanced</span><span class="kcal">ca. 500 kcal</span></div>
-  <div class="recipe"><h3>Tuna Pasta Box</h3><ul><li>Tuna</li><li>Wholegrain pasta</li><li>Cucumber / tomato</li><li>Light sauce</li></ul><span class="tag">Budget</span><span class="kcal">ca. 520 kcal</span></div>
-  <div class="recipe"><h3>Turkey Sweet Potato Bowl</h3><ul><li>Turkey mince</li><li>Sweet potato</li><li>Green beans</li><li>Low-fat yogurt dip</li></ul><span class="tag">Post Workout</span><span class="kcal">ca. 580 kcal</span></div>
-  <div class="recipe"><h3>Salmon Rice Prep</h3><ul><li>Salmon fillet</li><li>Rice</li><li>Zucchini / broccoli</li><li>Lemon yogurt sauce</li></ul><span class="tag">Healthy Fats</span><span class="kcal">ca. 650 kcal</span></div>
-  <div class="recipe"><h3>Beef Potato Box</h3><ul><li>Lean beef mince</li><li>Boiled potatoes</li><li>Carrots / peas</li><li>Light tomato sauce</li></ul><span class="tag">Muscle Meal</span><span class="kcal">ca. 600 kcal</span></div>
-  <div class="recipe"><h3>Chicken Wrap Box</h3><ul><li>Chicken breast</li><li>Wholegrain wrap</li><li>Lettuce / cucumber</li><li>Light garlic sauce</li></ul><span class="tag">Easy Lunch</span><span class="kcal">ca. 500 kcal</span></div>
-  <div class="recipe"><h3>Protein Overnight Oats</h3><ul><li>Oats</li><li>Skyr or Greek yogurt</li><li>Berries</li><li>Protein powder optional</li></ul><span class="tag">Breakfast Prep</span><span class="kcal">ca. 480 kcal</span></div>
-  <div class="recipe"><h3>Shrimp Rice Bowl</h3><ul><li>Shrimps</li><li>Rice or noodles</li><li>Mixed vegetables</li><li>Soy yogurt sauce</li></ul><span class="tag">Low Fat</span><span class="kcal">ca. 520 kcal</span></div>
-  <div class="recipe"><h3>Chicken Pasta Prep</h3><ul><li>Chicken breast</li><li>Wholegrain pasta</li><li>Tomato sauce</li><li>Spinach / mushrooms</li></ul><span class="tag">Training Carbs</span><span class="kcal">ca. 620 kcal</span></div>
-  <div class="recipe"><h3>Tofu Rice Bowl</h3><ul><li>Tofu</li><li>Rice</li><li>Broccoli / peppers</li><li>Light peanut sauce</li></ul><span class="tag">Vegetarian</span><span class="kcal">ca. 580 kcal</span></div>
-  <div class="recipe"><h3>Lean Chili Box</h3><ul><li>Lean beef or turkey mince</li><li>Kidney beans</li><li>Rice</li><li>Tomatoes / peppers</li></ul><span class="tag">High Protein</span><span class="kcal">ca. 650 kcal</span></div>
-  <div class="recipe"><h3>Chicken Couscous Box</h3><ul><li>Chicken breast</li><li>Couscous</li><li>Cucumber / tomato</li><li>Light feta optional</li></ul><span class="tag">Mediterranean</span><span class="kcal">ca. 560 kcal</span></div>
-  <div class="recipe"><h3>Egg Fried Rice Prep</h3><ul><li>Eggs or egg whites</li><li>Rice</li><li>Peas / carrots</li><li>Soy sauce light</li></ul><span class="tag">Simple Prep</span><span class="kcal">ca. 540 kcal</span></div>
-  <div class="recipe"><h3>Turkey Pasta Salad</h3><ul><li>Turkey breast</li><li>Wholegrain pasta</li><li>Tomato / cucumber</li><li>Light yogurt dressing</li></ul><span class="tag">Cold Meal</span><span class="kcal">ca. 570 kcal</span></div>
-  <div class="recipe"><h3>Protein Pancake Box</h3><ul><li>Oats</li><li>Egg whites</li><li>Banana</li><li>Skyr topping</li></ul><span class="tag">Sweet Prep</span><span class="kcal">ca. 500 kcal</span></div>
-  <div class="recipe"><h3>Chicken Quinoa Bowl</h3><ul><li>Chicken breast</li><li>Quinoa</li><li>Spinach / peppers</li><li>Lemon dressing</li></ul><span class="tag">Balanced</span><span class="kcal">ca. 590 kcal</span></div>
-  <div class="recipe"><h3>Cod Potato Prep</h3><ul><li>Cod or white fish</li><li>Potatoes</li><li>Green vegetables</li><li>Light herb sauce</li></ul><span class="tag">Lean Meal</span><span class="kcal">ca. 480 kcal</span></div>
-  <div class="recipe"><h3>Chicken Burrito Bowl</h3><ul><li>Chicken breast</li><li>Rice</li><li>Beans / corn</li><li>Salsa / yogurt sauce</li></ul><span class="tag">Meal Prep Classic</span><span class="kcal">ca. 640 kcal</span></div>
-</section>
-  
-<section class="card"><h2>Goal Adjustment</h2><ul><li><span class="highlight">Fat loss:</span> reduce oils, sauces and snack calories first.</li><li><span class="highlight">Muscle gain:</span> add rice, oats, olive oil or nuts carefully.</li><li><span class="highlight">Maintenance:</span> keep portions consistent and track weekly trend.</li></ul></section>
+  <a class="back-btn" href="index.html">← Back to Home</a>
 
-<footer class="footer"><p>© 2026 KiveoX Training Forge. Forge your future. All rights reserved.</p></footer>
+  <div class="detail-hero">
+    <h1>Meal Prep</h1>
+    <p>Simple food structure for strength, fat loss and consistency. Keep it easy enough to repeat.</p>
+  </div>
+
+  <section class="card">
+    <h2>Meal Prep Rules</h2>
+    <div class="exercise-meta">
+      <span>Protein each meal</span>
+      <span>Carbs around training</span>
+      <span>Veg daily</span>
+      <span>Water</span>
+      <span>80/20 consistency</span>
+    </div>
+    <p>Prep meals that are simple, repeatable and close to your goal calories. This section is intentionally separate so it can grow later.</p>
+  </section>
+
+  <section class="meal-grid">
+    <div class="recipe"><h3>Chicken Rice Bowl</h3><ul><li>Chicken breast or turkey</li><li>Rice or potatoes</li><li>Broccoli / salad</li><li>Yogurt sauce or light dressing</li></ul><span class="tag">Lean Strength</span><span class="kcal">ca. 550 kcal</span></div>
+    <div class="recipe"><h3>High-Protein Breakfast</h3><ul><li>Greek yogurt / Skyr</li><li>Oats</li><li>Berries</li><li>Protein powder optional</li></ul><span class="tag">Fast Prep</span><span class="kcal">ca. 450 kcal</span></div>
+    <div class="recipe"><h3>Egg + Potato Box</h3><ul><li>Eggs or egg whites</li><li>Potatoes</li><li>Spinach</li><li>Avocado optional</li></ul><span class="tag">Balanced</span><span class="kcal">ca. 500 kcal</span></div>
+    <div class="recipe"><h3>Tuna Pasta Box</h3><ul><li>Tuna</li><li>Wholegrain pasta</li><li>Cucumber / tomato</li><li>Light sauce</li></ul><span class="tag">Budget</span><span class="kcal">ca. 520 kcal</span></div>
+    <div class="recipe"><h3>Turkey Sweet Potato Bowl</h3><ul><li>Turkey mince</li><li>Sweet potato</li><li>Green beans</li><li>Low-fat yogurt dip</li></ul><span class="tag">Post Workout</span><span class="kcal">ca. 580 kcal</span></div>
+    <div class="recipe"><h3>Salmon Rice Prep</h3><ul><li>Salmon fillet</li><li>Rice</li><li>Zucchini / broccoli</li><li>Lemon yogurt sauce</li></ul><span class="tag">Healthy Fats</span><span class="kcal">ca. 650 kcal</span></div>
+    <div class="recipe"><h3>Beef Potato Box</h3><ul><li>Lean beef mince</li><li>Boiled potatoes</li><li>Carrots / peas</li><li>Light tomato sauce</li></ul><span class="tag">Muscle Meal</span><span class="kcal">ca. 600 kcal</span></div>
+    <div class="recipe"><h3>Chicken Wrap Box</h3><ul><li>Chicken breast</li><li>Wholegrain wrap</li><li>Lettuce / cucumber</li><li>Light garlic sauce</li></ul><span class="tag">Easy Lunch</span><span class="kcal">ca. 500 kcal</span></div>
+    <div class="recipe"><h3>Protein Overnight Oats</h3><ul><li>Oats</li><li>Skyr or Greek yogurt</li><li>Berries</li><li>Protein powder optional</li></ul><span class="tag">Breakfast Prep</span><span class="kcal">ca. 480 kcal</span></div>
+    <div class="recipe"><h3>Shrimp Rice Bowl</h3><ul><li>Shrimps</li><li>Rice or noodles</li><li>Mixed vegetables</li><li>Soy yogurt sauce</li></ul><span class="tag">Low Fat</span><span class="kcal">ca. 520 kcal</span></div>
+    <div class="recipe"><h3>Chicken Pasta Prep</h3><ul><li>Chicken breast</li><li>Wholegrain pasta</li><li>Tomato sauce</li><li>Spinach / mushrooms</li></ul><span class="tag">Training Carbs</span><span class="kcal">ca. 620 kcal</span></div>
+    <div class="recipe"><h3>Tofu Rice Bowl</h3><ul><li>Tofu</li><li>Rice</li><li>Broccoli / peppers</li><li>Light peanut sauce</li></ul><span class="tag">Vegetarian</span><span class="kcal">ca. 580 kcal</span></div>
+    <div class="recipe"><h3>Lean Chili Box</h3><ul><li>Lean beef or turkey mince</li><li>Kidney beans</li><li>Rice</li><li>Tomatoes / peppers</li></ul><span class="tag">High Protein</span><span class="kcal">ca. 650 kcal</span></div>
+    <div class="recipe"><h3>Chicken Couscous Box</h3><ul><li>Chicken breast</li><li>Couscous</li><li>Cucumber / tomato</li><li>Light feta optional</li></ul><span class="tag">Mediterranean</span><span class="kcal">ca. 560 kcal</span></div>
+    <div class="recipe"><h3>Egg Fried Rice Prep</h3><ul><li>Eggs or egg whites</li><li>Rice</li><li>Peas / carrots</li><li>Soy sauce light</li></ul><span class="tag">Simple Prep</span><span class="kcal">ca. 540 kcal</span></div>
+    <div class="recipe"><h3>Turkey Pasta Salad</h3><ul><li>Turkey breast</li><li>Wholegrain pasta</li><li>Tomato / cucumber</li><li>Light yogurt dressing</li></ul><span class="tag">Cold Meal</span><span class="kcal">ca. 570 kcal</span></div>
+    <div class="recipe"><h3>Protein Pancake Box</h3><ul><li>Oats</li><li>Egg whites</li><li>Banana</li><li>Skyr topping</li></ul><span class="tag">Sweet Prep</span><span class="kcal">ca. 500 kcal</span></div>
+    <div class="recipe"><h3>Chicken Quinoa Bowl</h3><ul><li>Chicken breast</li><li>Quinoa</li><li>Spinach / peppers</li><li>Lemon dressing</li></ul><span class="tag">Balanced</span><span class="kcal">ca. 590 kcal</span></div>
+    <div class="recipe"><h3>Cod Potato Prep</h3><ul><li>Cod or white fish</li><li>Potatoes</li><li>Green vegetables</li><li>Light herb sauce</li></ul><span class="tag">Lean Meal</span><span class="kcal">ca. 480 kcal</span></div>
+    <div class="recipe"><h3>Chicken Burrito Bowl</h3><ul><li>Chicken breast</li><li>Rice</li><li>Beans / corn</li><li>Salsa / yogurt sauce</li></ul><span class="tag">Meal Prep Classic</span><span class="kcal">ca. 640 kcal</span></div>
+  </section>
+
+  <section class="card">
+    <h2>Goal Adjustment</h2>
+    <ul>
+      <li><span class="highlight">Fat loss:</span> reduce oils, sauces and snack calories first.</li>
+      <li><span class="highlight">Muscle gain:</span> add rice, oats, olive oil or nuts carefully.</li>
+      <li><span class="highlight">Maintenance:</span> keep portions consistent and track weekly trend.</li>
+    </ul>
+  </section>
+
+</main>
+
+<footer class="footer">
+  <p>© 2026 KiveoX Training Forge. Forge your future. All rights reserved.</p>
+</footer>
+
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script src="app.js"></script>
 
-</main>
 </body>
 </html>
